@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Joe Sturdy – AI Solutions Architect CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Font: Tomorrow -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="Curriculum Vitae of Joe Sturdy – AI Solutions Architect and Founder specialising in AI platforms, automation and enterprise adoption."
+    />
+    <style>
+      /* ---------- Base & Layout ---------- */
+      :root {
+        /* Black / gold / white palette inspired by glassmorphism reference */
+        --bg-dark: #020204;
+        --bg-dark-alt: #050608;
+        --bg-card: rgba(8, 8, 10, 0.85);
+        --glass-highlight: rgba(255, 255, 255, 0.16);
+        --gold: #f4c96b;
+        --gold-soft: #f0d89a;
+        --gold-deep: #b38130;
+        --text-main: #ffffff;
+        --text-muted: #d0d3dc;
+        --border-subtle: rgba(255, 255, 255, 0.22);
+        --shadow-soft: 0 32px 80px rgba(0, 0, 0, 0.95);
+        --radius-lg: 28px;
+        --radius-md: 20px;
+        --radius-pill: 999px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
+          "SF Pro Text", "Segoe UI", sans-serif;
+        color: var(--text-main);
+        background: url("Futuristic-Gold-and-Black.jpg") center center / cover
+          no-repeat fixed;
+      }
+
+      .cv-shell {
+        width: 100%;
+        max-width: 1150px;
+        /* Remove outer "ring" look */
+        border-radius: 0;
+        padding: 0;
+        position: relative;
+        overflow: visible;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .cv-shell::before {
+        content: none;
+      }
+
+      .cv-shell-inner {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        border-radius: 32px;
+        padding: 0;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      header.cv-header {
+        display: grid;
+        grid-template-columns: 1.8fr 1.2fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .glass-card {
+        position: relative;
+        border-radius: var(--radius-lg);
+        background: rgba(8, 8, 16, 0.25);
+        backdrop-filter: blur(24px) saturate(150%);
+        -webkit-backdrop-filter: blur(24px) saturate(150%);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+          0 32px 80px rgba(0, 0, 0, 0.95);
+        border: 1px solid var(--border-subtle);
+        padding: 18px 20px;
+        overflow: hidden;
+        transition: transform 220ms ease, box-shadow 220ms ease,
+          border-color 220ms ease;
+      }
+
+      .glass-card:hover {
+        transform: translateY(-6px) translateZ(0);
+        box-shadow: 0 26px 60px rgba(0, 0, 0, 0.95);
+        border-color: rgba(244, 201, 107, 0.9);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      h3 {
+        font-size: 0.97rem;
+        color: var(--gold-soft);
+      }
+
+      p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+
+      /* Consistent spacing inside cards */
+      .glass-card h2 {
+        margin-bottom: 8px;
+      }
+
+      .glass-card h3 {
+        margin-top: 6px;
+        margin-bottom: 4px;
+      }
+
+      .glass-card p + p {
+        margin-top: 6px;
+      }
+
+      .glass-card h2 + p,
+      .glass-card h3 + p,
+      .glass-card h2 + ul,
+      .glass-card h3 + ul {
+        margin-top: 6px;
+      }
+
+      .role-tag {
+        margin-top: 4px;
+        font-size: 0.86rem;
+        color: var(--gold);
+      }
+
+      .contact-row {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+      }
+
+      .contact-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: var(--radius-pill);
+        background: radial-gradient(
+            circle at 0 0,
+            rgba(244, 201, 107, 0.25),
+            transparent 65%
+          ),
+          rgba(5, 5, 8, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .icon {
+        font-size: 0.86rem;
+      }
+
+      .quick-stats {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .stat-pill {
+        border-radius: var(--radius-pill);
+        padding: 6px 12px;
+        font-size: 0.76rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(
+          135deg,
+          rgba(244, 201, 107, 0.3),
+          rgba(0, 0, 0, 0.7)
+        );
+        border: 1px solid rgba(244, 201, 107, 0.9);
+        color: var(--text-main);
+      }
+
+      .stat-pill span.value {
+        font-weight: 600;
+        color: var(--accent-gold);
+      }
+
+      .tagline {
+        margin-top: 10px;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+      }
+
+      .profile-summary {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .info-bubbles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 6px;
+      }
+
+      .info-bubble {
+        position: relative;
+        padding: 7px 18px;
+        border-radius: var(--radius-pill);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        background: rgba(8, 8, 16, 0.25);
+        backdrop-filter: blur(18px) saturate(150%);
+        -webkit-backdrop-filter: blur(18px) saturate(150%);
+        box-shadow:
+          inset 0 0 0 0.5px rgba(255, 255, 255, 0.08),
+          0 18px 40px rgba(0, 0, 0, 0.8);
+        font-size: 0.82rem;
+        color: #ffffff;
+        white-space: nowrap;
+        text-decoration: none;
+        overflow: hidden;
+      }
+
+      .info-bubble::before {
+        content: none;
+      }
+
+
+      .profile-summary p {
+        font-size: 0.82rem;
+      }
+
+      .avatar-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .avatar-circle {
+        width: 78px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 220deg,
+          #f7c86b,
+          #ffffff,
+          #f5d89a,
+          #f7c86b
+        );
+        padding: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9);
+      }
+
+      .avatar-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        overflow: hidden;
+        background: #0a0a10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .avatar-inner img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: inherit;
+        display: block;
+      }
+
+      .badge-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .badge-chip {
+        border-radius: var(--radius-pill);
+        padding: 6px 11px;
+        font-size: 0.74rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--text-muted);
+      }
+
+      .badge-chip .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+      }
+
+      /* ---------- Main Grid ---------- */
+      .card-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        width: 100%;
+        height: 100%;
+        border-radius: 32px;
+        padding: 20px 22px;
+        background: rgba(8, 8, 16, 0.25);
+        backdrop-filter: blur(24px) saturate(150%);
+        -webkit-backdrop-filter: blur(24px) saturate(150%);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+      }
+
+      .card-grid > .glass-card {
+        height: 100%;
+      }
+
+      .card-span-2 {
+        grid-column: 1 / -1;
+      }
+
+      .personal-info-layout {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 4px;
+      }
+
+      .section-header span.label {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(195, 195, 216, 0.8);
+      }
+
+      .section-header span.meta {
+        font-size: 0.7rem;
+        color: rgba(195, 195, 216, 0.75);
+      }
+
+      ul.plain-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      ul.plain-list li {
+        font-size: 0.78rem;
+        padding: 5px 10px;
+        border-radius: var(--radius-pill);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: var(--text-muted);
+      }
+
+      .experience-item {
+        margin-bottom: 8px;
+      }
+
+      .experience-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 2px;
+      }
+
+      .experience-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .experience-meta {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        white-space: nowrap;
+      }
+
+      .experience-subtitle {
+        font-size: 0.78rem;
+        color: var(--gold-soft);
+        margin-bottom: 4px;
+      }
+
+      .bullet-list {
+        margin: 0;
+        padding-left: 16px;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .bullet-list li + li {
+        margin-top: 2px;
+      }
+
+      /* ---------- Metrics & Interactive-style Stats ---------- */
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 6px;
+      }
+
+      .metric-card {
+        border-radius: var(--radius-md);
+        padding: 10px 10px 12px;
+        background: radial-gradient(
+            circle at 0 0,
+            rgba(244, 201, 107, 0.26),
+            transparent 60%
+          ),
+          rgba(10, 10, 14, 0.94);
+        border: 1px solid rgba(244, 201, 107, 0.7);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .metric-label {
+        font-size: 0.7rem;
+        color: rgba(240, 236, 220, 0.92);
+      }
+
+      .metric-value {
+        margin-top: 4px;
+        font-size: 0.98rem;
+        font-weight: 600;
+        color: var(--gold);
+      }
+
+      .metric-bar {
+        margin-top: 7px;
+        height: 5px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      .metric-fill {
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--gold), #ffffff);
+        transform-origin: left;
+        transform: scaleX(0.1);
+        transition: transform 320ms ease-out;
+      }
+
+      .metric-card:hover .metric-fill {
+        transform: scaleX(1);
+      }
+
+      .metric-footnote {
+        margin-top: 4px;
+        font-size: 0.68rem;
+        color: rgba(195, 195, 216, 0.9);
+      }
+
+      .metric-switcher {
+        margin-top: 10px;
+        display: flex;
+        gap: 6px;
+      }
+
+      .metric-switcher input {
+        display: none;
+      }
+
+      .metric-tab {
+        flex: 1;
+      }
+
+      .metric-label-tab {
+        display: block;
+        text-align: center;
+        padding: 5px 6px;
+        border-radius: var(--radius-pill);
+        font-size: 0.72rem;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: rgba(195, 195, 216, 0.86);
+        background: rgba(5, 5, 9, 0.9);
+      }
+
+      #metric-focus-1:checked ~ .metric-switcher label[for="metric-focus-1"],
+      #metric-focus-2:checked ~ .metric-switcher label[for="metric-focus-2"],
+      #metric-focus-3:checked ~ .metric-switcher label[for="metric-focus-3"] {
+        background: linear-gradient(
+          135deg,
+          rgba(247, 200, 107, 0.9),
+          rgba(255, 255, 255, 0.9)
+        );
+        color: #0a0a10;
+        border-color: transparent;
+      }
+
+      .metric-detail {
+        margin-top: 8px;
+        font-size: 0.74rem;
+        color: var(--text-muted);
+      }
+
+      .metric-detail span.strong {
+        color: var(--gold-soft);
+        font-weight: 500;
+      }
+
+      /* ---------- Skills Card ---------- */
+      .skills-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 10px;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .skill-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+
+      .skill-name {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+
+      .skills-column h3 {
+        font-size: 0.9rem;
+      }
+
+      .skills-general {
+        grid-column: 1 / -1;
+      }
+
+      .skills-column .skills-list {
+        margin-top: 4px;
+      }
+
+      /* ---------- Education & Misc ---------- */
+      .edu-item {
+        margin-bottom: 6px;
+      }
+
+      .edu-title {
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .edu-meta {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .award-list,
+      .cert-list {
+        margin: 0;
+        padding-left: 16px;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+      }
+
+      /* ---------- Responsiveness ---------- */
+      @media (max-width: 900px) {
+        .cv-shell {
+          aspect-ratio: auto;
+          height: auto;
+        }
+
+        .cv-shell-inner {
+          height: auto;
+        }
+
+        .card-grid,
+        .personal-info-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
+
+        .cv-shell {
+          padding: 10px;
+        }
+
+        .cv-shell-inner {
+          padding: 14px;
+        }
+      }
+
+      /* ---------- Print / A4 PDF Styles ---------- */
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+
+        /* Keep colours and background for PDF export */
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        html,
+        body {
+          display: block !important;
+          margin: 0 !important;
+          padding: 12mm 10mm 14mm !important;
+          background: none !important;
+          color: #ffffff !important;
+        }
+
+        body::before {
+          content: "";
+          position: fixed;
+          inset: -12mm;
+          background: url("Futuristic-Gold-and-Black.jpg") center center / cover
+            no-repeat;
+          transform: scale(1.12);
+          transform-origin: center;
+          background-attachment: fixed;
+          z-index: -1;
+        }
+
+        .cv-shell {
+          max-width: 1150px !important;
+          margin: 0 auto !important;
+        }
+
+        .card-grid {
+          background: rgba(8, 8, 16, 0.12) !important;
+          padding: 22px 26px !important;
+          gap: 22px !important;
+          box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+        }
+
+        .glass-card {
+          background: rgba(8, 8, 16, 0.32) !important;
+          backdrop-filter: blur(24px) saturate(150%) !important;
+          -webkit-backdrop-filter: blur(24px) saturate(150%) !important;
+          border-color: rgba(255, 255, 255, 0.18) !important;
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75) !important;
+          padding: 22px 24px !important;
+        }
+
+        /* Avoid sections being split awkwardly across pages */
+        section {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv-shell">
+      <div class="cv-shell-inner">
+        <div class="card-grid">
+          <!-- Personal Info -->
+          <section class="glass-card card-span-2">
+            <div class="personal-info-layout">
+              <div class="avatar-circle" aria-hidden="true">
+                <div class="avatar-inner">
+                  <img src="avatar.jpeg" alt="Portrait of Joe Sturdy" />
+                </div>
+              </div>
+              <div>
+                <h2>Personal Info</h2>
+                <div class="info-bubbles">
+                  <span class="info-bubble">Joe Sturdy</span>
+                  <span class="info-bubble">07785764880</span>
+                  <span class="info-bubble">joesturdy01@icloud.com</span>
+                  <span class="info-bubble">Frome, UK</span>
+                  <a
+                    class="info-bubble"
+                    href="https://www.linkedin.com/in/joesturdy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >www.linkedin.com/in/joesturdy</a
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Summary -->
+          <section class="glass-card card-span-2">
+            <h2>Summary</h2>
+            <p>
+              Pragmatic AI Solutions Architect and Founder with a proven track record of bridging the gap between technical AI implementation and business value. Expertise in architecting scalable AI-powered platforms and driving enterprise adoption through clear technical communication and client advisory. Committed to leveraging entrepreneurial agility and deep commercial acumen to deploy secure, high-impact AI solutions.
+            </p>
+          </section>
+
+          <!-- Relevant Experience -->
+          <section class="glass-card card-span-2">
+            <h2>Relevant Experience</h2>
+
+            <h3>Co-Founder – Askar Research – Sep 2024 – Present (1 Year, 3 Months)</h3>
+            <ul class="bullet-list">
+              <li>
+                Architected a scalable AI-powered research platform, defining the technical roadmap and product strategy to deliver deep insights in minutes rather than weeks.
+              </li>
+              <li>
+                Led rapid prototyping cycles to validate core features, successfully securing £10,000 in initial funding and launching a strategic pilot with 10 diverse enterprises.
+              </li>
+              <li>
+                Acted as the technical bridge between client requirements and platform engineering, translating feedback into governance-compliant features for the public beta launch.
+              </li>
+            </ul>
+
+            <h3>Senior Business Development Executive – Darktrace – Jan 2024 – Aug 2024 (8 Months)</h3>
+            <ul class="bullet-list">
+              <li>
+                Facilitated £250,000+ in closed revenue by translating complex AI cybersecurity architectures into clear business value for C-suite stakeholders.
+              </li>
+              <li>
+                Managed the full client advisory lifecycle, partnering with Account Executives to execute seamless Proof of Concepts (PoCs) and demonstrate rapid ROI.
+              </li>
+              <li>
+                Promoted within six months for exceptional technical grasp and sales performance, efficiently handling objections regarding data privacy and model security.
+              </li>
+            </ul>
+
+            <h3>Founder – Sturdy Ebikes – Sep 2018 – Sep 2020 (2 Years, 1 Month)</h3>
+            <ul class="bullet-list">
+              <li>
+                Engineered custom e-bike conversion solutions, identifying a market gap and building a sustainable direct-to-consumer brand from the ground up.
+              </li>
+              <li>
+                Managed end-to-end supply chain and product development, solving complex technical integration challenges for diverse bicycle frames.
+              </li>
+              <li>
+                Established the initial digital footprint and sales pipeline, successfully delivering cost-effective, eco-friendly transport alternatives to a local client base.
+              </li>
+            </ul>
+          </section>
+
+          <!-- Relevant Projects -->
+          <section class="glass-card card-span-2">
+            <h2>Relevant Projects</h2>
+
+            <h3>Founder – Sturdy Ai – Aug 2025 – Present (4 Months)</h3>
+
+            <ul class="bullet-list">
+              <li>
+                Architected and deployed custom AI solutions, including voice agents and personal assistants, enabling clients to automate complex workflows and increase operational efficiency by 10x.
+              </li>
+              <li>
+                Served as a technical advisor to business clients, translating "AI hype" into practical, secure roadmaps that utilise Large Language Models (LLMs) and automation to drive measurable ROI.
+              </li>
+              <li>
+                Executed rapid prototyping of proprietary tools, successfully productising a custom AI voice agent for a client that is now being resold as a scalable SaaS product.
+              </li>
+            </ul>
+          </section>
+
+          <!-- Additional Experience -->
+          <section class="glass-card card-span-2">
+            <h2>Additional Experience</h2>
+            <p>Founder – Sturdy Vanilla – Aug 2024 – Present (1 Year, 4 Months)</p>
+            <p>Sales Representative – Freddie's Flowers – Oct 2024 – Mar 2025 (6 Months)</p>
+            <p>Sales Consultant – Hotelplan UK Ltd – Nov 2022 – May 2023 (7 Months)</p>
+            <p>Business Assistant – Nick Allhusen – Jan 2022 – Aug 2022 (8 Months)</p>
+            <p>Hamper Packer – Virginia Hayward Ltd – Oct 2021 – Dec 2021 (3 Months)</p>
+            <p>Chalet Host – Chalet Helora – Dec 2019 – Mar 2020 (4 Months)</p>
+          </section>
+
+          <!-- Education -->
+          <section class="glass-card">
+            <h2>Education</h2>
+            <p>Nottingham Trent University – Sep 2020 – Sep 2021 BSc, Product Design</p>
+            <p>Milton Abbey – Sep 2017 – Jul 2019 BTEC Level 3 National Diploma (Business, Design &amp; Technology, Music)</p>
+          </section>
+
+          <!-- Licenses & Certifications -->
+          <section class="glass-card">
+            <h2>Licenses &amp; Certifications</h2>
+            <p>Competent Crew - RYA</p>
+            <p>Driving License - DVLA</p>
+            <p>Powerboat Level 2 &amp; Towing Licence - RYA</p>
+          </section>
+
+          <!-- Skills -->
+          <section class="glass-card card-span-2">
+            <h2>Skills</h2>
+            <div class="skills-layout">
+              <div class="skills-general">
+                <h3>General</h3>
+                <div class="skills-list">
+                  <div class="skill-item">
+                    <span class="skill-name">Startup Founding &amp; Growth</span>
+                  </div>
+
+                  <div class="skill-item">
+                    <span class="skill-name">Artificial Intelligence (AI) &amp; Automation</span>
+                  </div>
+
+                  <div class="skill-item">
+                    <span class="skill-name">Business Development &amp; Sales Strategy</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skills-column">
+                <h3>Industry Knowledge</h3>
+                <div class="skills-list">
+                  <div class="skill-item">
+                    <span class="skill-name">Customer Insight</span>
+                  </div>
+
+                  <div class="skill-item">
+                    <span class="skill-name">Cybersecurity Sales</span>
+                  </div>
+
+                  <div class="skill-item">
+                    <span class="skill-name">Product Development</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skills-column">
+                <h3>Tools &amp; Technologies</h3>
+                <div class="skills-list">
+                  <div class="skill-item">
+                    <span class="skill-name">Cursor</span>
+                  </div>
+
+                  <div class="skill-item">
+                    <span class="skill-name">LinkedIn Sales Navigator</span>
+                  </div>
+
+                  <div class="skill-item">
+                    <span class="skill-name">ZoomInfo SalesOS</span>
+                  </div>
+
+                  <div class="skill-item">
+                    <span class="skill-name">Wix Studio</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Honours & Awards -->
+          <section class="glass-card card-span-2">
+            <h2>Honours &amp; Awards</h2>
+            <p>Business and Enterprise Student of the Year - Milton Abbey - 2019</p>
+            <p>Entrepreneur and Enterprise Award - Milton Abbey - 2019</p>
+            <p>Duke of Edinburgh Award - DofE - 2017</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
