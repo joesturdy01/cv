@@ -397,36 +397,34 @@
 
         html {
           width: 210mm !important;
-          height: 297mm !important;
-          min-height: 297mm !important;
-          max-height: 297mm !important;
+          height: auto !important;
+          min-height: 100% !important;
           margin: 0 !important;
           padding: 0 !important;
           background-color: #020204 !important;
           background-image: url("Futuristic-Gold-and-Black.jpg") !important;
           background-size: 210mm 297mm !important;
-          background-repeat: no-repeat !important;
+          background-repeat: repeat-y !important;
           background-position: 0 0 !important;
         }
 
         body {
           width: 210mm !important;
-          height: 297mm !important;
-          min-height: 297mm !important;
-          max-height: 297mm !important;
+          height: auto !important;
+          min-height: 100% !important;
           margin: 0 !important;
           padding: 0 !important;
           color: #ffffff !important;
-          background-color: transparent !important;
+          background-color: #020204 !important;
           background-image: url("Futuristic-Gold-and-Black.jpg") !important;
           background-size: 210mm 297mm !important;
-          background-repeat: no-repeat !important;
+          background-repeat: repeat-y !important;
           background-position: 0 0 !important;
           display: flex !important;
           justify-content: center !important;
           align-items: flex-start !important;
           position: relative !important;
-          overflow: hidden !important;
+          overflow: visible !important;
         }
 
         .cv-shell {
@@ -447,8 +445,8 @@
           min-height: calc(297mm - 40px) !important;
           height: auto !important;
           background: rgba(8, 8, 16, 0.32) !important;
-          padding: 20px !important;
-          gap: 20px !important;
+          padding: 15px !important;
+          gap: 15px !important;
           border-radius: 25px !important;
           box-shadow: none !important;
           grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -460,9 +458,37 @@
           background: rgba(8, 8, 16, 0.5) !important;
           border: 1px solid rgba(255, 255, 255, 0.1) !important;
           box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4) !important;
-          padding: 20px !important;
+          padding: 15px !important;
           border-radius: 25px !important;
           overflow: visible !important;
+        }
+
+        .glass-card h2 {
+          margin-bottom: 6px !important;
+        }
+
+        .glass-card h3 {
+          margin-top: 4px !important;
+          margin-bottom: 3px !important;
+        }
+
+        .glass-card p + p {
+          margin-top: 4px !important;
+        }
+
+        .glass-card h2 + p,
+        .glass-card h3 + p,
+        .glass-card h2 + ul,
+        .glass-card h3 + ul {
+          margin-top: 4px !important;
+        }
+
+        .bullet-list {
+          margin-top: 4px !important;
+        }
+
+        .bullet-list li + li {
+          margin-top: 1px !important;
         }
 
         .card-span-2 {
@@ -480,6 +506,22 @@
         section {
           page-break-inside: avoid;
           break-inside: avoid;
+        }
+
+        /* Keep first 5 sections (Personal Info through Additional Experience) together on page 1 */
+        .card-grid > section:nth-child(1),
+        .card-grid > section:nth-child(2),
+        .card-grid > section:nth-child(3),
+        .card-grid > section:nth-child(4),
+        .card-grid > section:nth-child(5) {
+          page-break-after: avoid;
+          break-after: avoid;
+        }
+
+        /* Page break before Skills to start Page 2 with Skills */
+        .page-break-before {
+          page-break-before: always;
+          break-before: page;
         }
 
         .card-grid > section:nth-last-child(1),
@@ -600,7 +642,7 @@
           </section>
 
           <!-- Skills -->
-          <section class="glass-card skills-card">
+          <section class="glass-card skills-card page-break-before">
             <h2>Skills</h2>
             <div class="skills-layout">
               <div class="skills-general">
