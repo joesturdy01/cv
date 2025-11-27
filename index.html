@@ -280,14 +280,12 @@
       }
 
       .avatar-circle {
-        width: 390px;
+        width: clamp(150px, 37.5vw, 488px);
         height: auto;
         aspect-ratio: 1 / 1;
         border-radius: 50%;
         background: var(--gold);
         padding: 6px;
-        flex: 0 0 auto;
-        max-width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
