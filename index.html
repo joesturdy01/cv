@@ -15,6 +15,7 @@
       name="description"
       content="Curriculum Vitae of Joe Sturdy – AI Solutions Architect and Founder specialising in AI platforms, automation and enterprise adoption."
     />
+    <meta name="color-scheme" content="dark" />
     <style>
       /* ---------- Base & Layout ---------- */
       :root {
@@ -388,17 +389,21 @@
         @page {
           size: A4;
           margin: 0;
+          /* Ensure Safari uses exact A4 dimensions */
+          width: 210mm;
+          height: 297mm;
         }
 
         * {
           -webkit-print-color-adjust: exact !important;
           print-color-adjust: exact !important;
+          color-adjust: exact !important;
         }
 
         html {
           width: 210mm !important;
-          height: auto !important;
-          min-height: 100% !important;
+          height: 350mm !important;
+          min-height: 350mm !important;
           margin: 0 !important;
           padding: 0 !important;
           background-color: #020204 !important;
@@ -406,13 +411,16 @@
           background-size: 210mm 297mm !important;
           background-repeat: repeat-y !important;
           background-position: 0 0 !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
         }
 
         body {
           width: 210mm !important;
-          height: auto !important;
-          min-height: 100% !important;
-          margin: 0 !important;
+          max-width: 210mm !important;
+          height: 350mm !important;
+          min-height: 350mm !important;
+          margin: 0 auto !important;
           padding: 0 !important;
           color: #ffffff !important;
           background-color: #020204 !important;
@@ -425,6 +433,8 @@
           align-items: flex-start !important;
           position: relative !important;
           overflow: visible !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
         }
 
         .cv-shell {
@@ -432,13 +442,30 @@
           max-width: 210mm !important;
           min-width: 210mm !important;
           min-height: 297mm !important;
+          height: auto !important;
           padding: 20px !important;
-          margin: 0 !important;
+          margin: 0 auto !important;
+          background: transparent !important;
+          box-shadow: none !important;
+          position: relative !important;
+          z-index: 1 !important;
         }
 
         .cv-shell-inner {
           height: auto !important;
           min-height: calc(297mm - 40px) !important;
+          position: relative !important;
+        }
+
+        /* Force background to extend to bottom by ensuring body/html height matches content */
+        body,
+        html {
+          height: auto !important;
+        }
+
+        /* Calculate actual content height and ensure background covers it */
+        .cv-shell {
+          padding-bottom: 40px !important;
         }
 
         .card-grid {
@@ -452,6 +479,8 @@
           grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
           align-content: start !important;
           overflow: visible !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
         }
 
         .glass-card {
@@ -461,6 +490,10 @@
           padding: 15px !important;
           border-radius: 25px !important;
           overflow: visible !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          backdrop-filter: blur(24px) saturate(150%) !important;
+          -webkit-backdrop-filter: blur(24px) saturate(150%) !important;
         }
 
         .glass-card h2 {
@@ -527,6 +560,60 @@
         .card-grid > section:nth-last-child(1),
         .card-grid > section:nth-last-child(2) {
           break-after: auto;
+        }
+
+        /* Ensure images and backgrounds render correctly in Safari */
+        img {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          max-width: 100% !important;
+          height: auto !important;
+        }
+
+        .avatar-circle img {
+          border: 1px solid var(--gold) !important;
+        }
+
+        /* Ensure info bubbles maintain styling */
+        .info-bubble {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          background: rgba(8, 8, 16, 0.25) !important;
+          border: 1px solid rgba(255, 255, 255, 0.24) !important;
+        }
+
+        /* Prevent Safari from removing background images */
+        .cv-shell-inner,
+        .card-grid,
+        .glass-card {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        /* Ensure fonts are loaded before print */
+        @font-face {
+          font-family: "Tomorrow";
+          font-display: swap;
+        }
+
+        /* Safari-specific: Ensure all elements maintain their visual appearance */
+        a {
+          color: inherit !important;
+          text-decoration: none !important;
+        }
+
+        /* Prevent Safari from adjusting colors or backgrounds */
+        *::before,
+        *::after {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+      }
+
+      /* Additional Safari print media query for better compatibility */
+      @media print and (-webkit-min-device-pixel-ratio: 0) {
+        body {
+          -webkit-print-color-adjust: exact !important;
         }
       }
     </style>
