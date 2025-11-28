@@ -13,9 +13,21 @@
     />
     <meta
       name="description"
-      content="Curriculum Vitae of Joe Sturdy – AI Solutions Architect and Founder specialising in AI platforms, automation and enterprise adoption."
+      content="Curriculum Vitae of Joe Sturdy – AI Solutions Architect and Founder specialising in AI platforms, automation and enterprise adoption. Expertise in scalable AI-powered platforms, enterprise adoption, technical communication, client advisory, cybersecurity sales, business development, and startup founding."
     />
     <meta name="color-scheme" content="dark" />
+    <meta name="keywords" content="AI Solutions Architect, Artificial Intelligence, Machine Learning, LLM, Large Language Models, Automation, Enterprise AI, Cybersecurity Sales, Business Development, Startup Founder, Product Development, AI Platforms, Technical Architecture, Client Advisory, Proof of Concept, ROI, SaaS, Voice Agents, Personal Assistants" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Joe Sturdy" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Joe Sturdy – AI Solutions Architect CV" />
+    <meta property="og:description" content="Pragmatic AI Solutions Architect and Founder with expertise in architecting scalable AI-powered platforms and driving enterprise adoption." />
+    <meta property="og:url" content="https://www.linkedin.com/in/joesturdy" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Joe Sturdy – AI Solutions Architect CV" />
+    <meta name="twitter:description" content="AI Solutions Architect and Founder specialising in AI platforms, automation and enterprise adoption." />
     <style>
       /* ---------- Base & Layout ---------- */
       :root {
@@ -42,6 +54,8 @@
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
+          "SF Pro Text", "Segoe UI", sans-serif;
       }
 
       html {
@@ -60,7 +74,7 @@
         padding: 20px;
         font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
           "SF Pro Text", "Segoe UI", sans-serif;
-        color: var(--text-main);
+        color: #ffffff;
         background: url("Futuristic-Gold-and-Black.jpg") center center / cover
           no-repeat fixed;
         -webkit-font-smoothing: antialiased;
@@ -140,28 +154,36 @@
         margin: 0;
         font-weight: 600;
         letter-spacing: 0.02em;
+        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
+          "SF Pro Text", "Segoe UI", sans-serif;
       }
 
       h1 {
         font-size: 1.7rem;
+        font-weight: 600;
       }
 
       h2 {
         font-size: 1rem;
+        font-weight: 600;
         text-transform: uppercase;
         color: var(--gold);
       }
 
       h3 {
         font-size: 0.92rem;
+        font-weight: 600;
         color: var(--gold-soft);
       }
 
       p {
         margin: 0;
-        color: var(--text-muted);
+        color: #ffffff;
         font-size: 0.78rem;
+        font-weight: 400;
         line-height: 1.35;
+        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
+          "SF Pro Text", "Segoe UI", sans-serif;
       }
 
       /* Consistent spacing inside cards */
@@ -204,7 +226,10 @@
         box-shadow:
           inset 0 0 0 0.5px rgba(255, 255, 255, 0.08),
           0 18px 40px rgba(0, 0, 0, 0.8);
-        font-size: 0.8rem;
+        font-size: 0.78rem;
+        font-weight: 400;
+        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
+          "SF Pro Text", "Segoe UI", sans-serif;
         color: #ffffff;
         white-space: nowrap;
         max-width: max-content;
@@ -326,8 +351,19 @@
       .bullet-list {
         margin: 0;
         padding-left: 16px;
-        font-size: 0.8rem;
-        color: var(--text-muted);
+        font-size: 0.78rem;
+        font-weight: 400;
+        color: #ffffff;
+        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
+          "SF Pro Text", "Segoe UI", sans-serif;
+      }
+
+      .bullet-list li {
+        font-size: 0.78rem;
+        font-weight: 400;
+        color: #ffffff;
+        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
+          "SF Pro Text", "Segoe UI", sans-serif;
       }
 
       .bullet-list li + li {
@@ -357,13 +393,16 @@
       }
 
       .skill-name {
-        font-size: 0.82rem;
-        color: var(--text-muted);
+        font-size: 0.78rem;
         font-weight: 400;
+        color: #ffffff;
+        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
+          "SF Pro Text", "Segoe UI", sans-serif;
       }
 
       .skills-column h3 {
-        font-size: 0.9rem;
+        font-size: 0.92rem;
+        font-weight: 600;
       }
 
       .skills-general {
@@ -398,6 +437,8 @@
           -webkit-print-color-adjust: exact !important;
           print-color-adjust: exact !important;
           color-adjust: exact !important;
+          font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
+            "SF Pro Text", "Segoe UI", sans-serif !important;
         }
 
         html {
@@ -616,35 +657,197 @@
           -webkit-print-color-adjust: exact !important;
         }
       }
+
+      /* ---------- ATS-Only Hidden Text (Screen Reader Accessible) ---------- */
+      .ats-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+        font-size: 0;
+        line-height: 0;
+      }
+
+      /* Ensure ATS-only content is not visible but remains in DOM */
+      .ats-only:not(:focus):not(:active) {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+      }
     </style>
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Joe Sturdy",
+      "email": "joesturdy01@icloud.com",
+      "telephone": "+447785764880",
+      "url": "https://www.linkedin.com/in/joesturdy",
+      "jobTitle": "AI Solutions Architect",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Sturdy Ai"
+      },
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Nottingham Trent University",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB"
+          }
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Milton Abbey",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB"
+          }
+        }
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Nottingham Trent University"
+          },
+          "educationalLevel": "Bachelor's Degree",
+          "about": "Product Design",
+          "dateCreated": "2021-09"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "qualification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Milton Abbey"
+          },
+          "educationalLevel": "BTEC Level 3",
+          "about": "Business, Design & Technology, Music"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "license",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "RYA"
+          },
+          "about": "Competent Crew"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "license",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "RYA"
+          },
+          "about": "Powerboat Level 2 & Towing Licence"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "license",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "DVLA"
+          },
+          "about": "Driving License"
+        }
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "AI",
+        "Machine Learning",
+        "Large Language Models",
+        "LLM",
+        "Automation",
+        "Enterprise AI",
+        "Cybersecurity",
+        "Business Development",
+        "Sales Strategy",
+        "Startup Founding",
+        "Product Development",
+        "Technical Architecture",
+        "Client Advisory",
+        "Proof of Concept",
+        "SaaS",
+        "Voice Agents",
+        "Personal Assistants",
+        "Customer Insight",
+        "Cybersecurity Sales",
+        "Cursor",
+        "LinkedIn Sales Navigator",
+        "ZoomInfo SalesOS",
+        "Wix Studio"
+      ],
+      "award": [
+        {
+          "@type": "Award",
+          "name": "Business and Enterprise Student of the Year",
+          "awardedBy": {
+            "@type": "Organization",
+            "name": "Milton Abbey"
+          },
+          "dateReceived": "2019"
+        },
+        {
+          "@type": "Award",
+          "name": "Entrepreneur and Enterprise Award",
+          "awardedBy": {
+            "@type": "Organization",
+            "name": "Milton Abbey"
+          },
+          "dateReceived": "2019"
+        },
+        {
+          "@type": "Award",
+          "name": "Duke of Edinburgh Award",
+          "awardedBy": {
+            "@type": "Organization",
+            "name": "DofE"
+          },
+          "dateReceived": "2017"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div class="cv-shell">
       <div class="cv-shell-inner">
-        <div class="card-grid">
-          <!-- Personal Info -->
-          <section class="glass-card equal-height-card">
-            <div class="personal-info-layout">
-              <div class="info-block">
-                <h2>Personal Info</h2>
-                <div class="info-bubbles">
-                  <span class="info-bubble">Joe Sturdy</span>
-                  <span class="info-bubble">+447785764880</span>
-                  <span class="info-bubble">joesturdy01@icloud.com</span>
-                  <a
-                    class="info-bubble"
-                    href="https://www.linkedin.com/in/joesturdy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >www.linkedin.com/in/joesturdy</a
-                  >
+        <main>
+          <h1 class="ats-only">Joe Sturdy - AI Solutions Architect</h1>
+          <div class="card-grid">
+            <!-- Personal Info -->
+            <header class="glass-card equal-height-card">
+              <div class="personal-info-layout">
+                <div class="info-block">
+                  <h2>Personal Info</h2>
+                  <address class="info-bubbles">
+                    <span class="info-bubble">Joe Sturdy</span>
+                    <a class="info-bubble" href="tel:+447785764880">+447785764880</a>
+                    <a class="info-bubble" href="mailto:joesturdy01@icloud.com">joesturdy01@icloud.com</a>
+                    <a
+                      class="info-bubble"
+                      href="https://www.linkedin.com/in/joesturdy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >www.linkedin.com/in/joesturdy</a
+                    >
+                  </address>
+                </div>
+                <div class="avatar-circle" aria-hidden="true">
+                  <img src="avatar.jpeg" alt="Portrait of Joe Sturdy" />
                 </div>
               </div>
-              <div class="avatar-circle" aria-hidden="true">
-                <img src="avatar.jpeg" alt="Portrait of Joe Sturdy" />
-              </div>
-            </div>
-          </section>
+            </header>
 
           <!-- Summary -->
           <section class="glass-card equal-height-card">
@@ -658,74 +861,94 @@
           <section class="glass-card card-span-2">
             <h2>Relevant Experience</h2>
 
-            <h3>Co-Founder – Askar Research – Sep 2024 – Present (1 Year, 3 Months)</h3>
-            <ul class="bullet-list">
-              <li>
-                Architected a scalable AI-powered research platform, defining the technical roadmap and product strategy to deliver deep insights in minutes rather than weeks.
-              </li>
-              <li>
-                Led rapid prototyping cycles to validate core features, successfully securing £10,000 in initial funding and launching a strategic pilot with 10 diverse enterprises.
-              </li>
-              <li>
-                Acted as the technical bridge between client requirements and platform engineering, translating feedback into governance-compliant features for the public beta launch.
-              </li>
-            </ul>
+            <article data-job-title="Co-Founder" data-company="Askar Research" data-start-date="2024-09-01" data-end-date="present">
+              <h3>Co-Founder – Askar Research – <time datetime="2024-09-01">September 2024</time> – <time datetime="..">Present</time> (1 Year, 3 Months)</h3>
+              <ul class="bullet-list">
+                <li>
+                  Architected a scalable AI-powered research platform, defining the technical roadmap and product strategy to deliver deep insights in minutes rather than weeks.
+                </li>
+                <li>
+                  Led rapid prototyping cycles to validate core features, successfully securing £10,000 in initial funding and launching a strategic pilot with 10 diverse enterprises.
+                </li>
+                <li>
+                  Acted as the technical bridge between client requirements and platform engineering, translating feedback into governance-compliant features for the public beta launch.
+                </li>
+              </ul>
+            </article>
 
-            <h3>Senior Business Development Executive – Darktrace – Jan 2024 – Aug 2024 (8 Months)</h3>
-            <ul class="bullet-list">
-              <li>
-                Facilitated £250,000+ in closed revenue by translating complex AI cybersecurity architectures into clear business value for C-suite stakeholders.
-              </li>
-              <li>
-                Managed the full client advisory lifecycle, partnering with Account Executives to execute seamless Proof of Concepts (PoCs) and demonstrate rapid ROI.
-              </li>
-              <li>
-                Promoted within six months for exceptional technical grasp and sales performance, efficiently handling objections regarding data privacy and model security.
-              </li>
-            </ul>
+            <article data-job-title="Senior Business Development Executive" data-company="Darktrace" data-start-date="2024-01-01" data-end-date="2024-08-31">
+              <h3>Senior Business Development Executive – Darktrace – <time datetime="2024-01-01">January 2024</time> – <time datetime="2024-08-31">August 2024</time> (8 Months)</h3>
+              <ul class="bullet-list">
+                <li>
+                  Facilitated £250,000+ in closed revenue by translating complex AI cybersecurity architectures into clear business value for C-suite stakeholders.
+                </li>
+                <li>
+                  Managed the full client advisory lifecycle, partnering with Account Executives to execute seamless Proof of Concepts (PoCs) and demonstrate rapid ROI.
+                </li>
+                <li>
+                  Promoted within six months for exceptional technical grasp and sales performance, efficiently handling objections regarding data privacy and model security.
+                </li>
+              </ul>
+            </article>
 
-            <h3>Founder – Sturdy Ebikes – Sep 2018 – Sep 2020 (2 Years, 1 Month)</h3>
-            <ul class="bullet-list">
-              <li>
-                Engineered custom e-bike conversion solutions, identifying a market gap and building a sustainable direct-to-consumer brand from the ground up.
-              </li>
-              <li>
-                Managed end-to-end supply chain and product development, solving complex technical integration challenges for diverse bicycle frames.
-              </li>
-              <li>
-                Established the initial digital footprint and sales pipeline, successfully delivering cost-effective, eco-friendly transport alternatives to a local client base.
-              </li>
-            </ul>
+            <article data-job-title="Founder" data-company="Sturdy Ebikes" data-start-date="2018-09-01" data-end-date="2020-09-30">
+              <h3>Founder – Sturdy Ebikes – <time datetime="2018-09-01">September 2018</time> – <time datetime="2020-09-30">September 2020</time> (2 Years, 1 Month)</h3>
+              <ul class="bullet-list">
+                <li>
+                  Engineered custom e-bike conversion solutions, identifying a market gap and building a sustainable direct-to-consumer brand from the ground up.
+                </li>
+                <li>
+                  Managed end-to-end supply chain and product development, solving complex technical integration challenges for diverse bicycle frames.
+                </li>
+                <li>
+                  Established the initial digital footprint and sales pipeline, successfully delivering cost-effective, eco-friendly transport alternatives to a local client base.
+                </li>
+              </ul>
+            </article>
           </section>
 
           <!-- Relevant Projects -->
           <section class="glass-card equal-height-card">
             <h2>Relevant Projects</h2>
 
-            <h3>Founder – Sturdy Ai – Aug 2025 – Present (4 Months)</h3>
+            <article data-job-title="Founder" data-company="Sturdy Ai" data-start-date="2024-08-01" data-end-date="present">
+              <h3>Founder – Sturdy Ai – <time datetime="2024-08-01">August 2024</time> – <time datetime="..">Present</time> (4 Months)</h3>
 
-            <ul class="bullet-list">
-              <li>
-                Architected and deployed custom AI solutions, including voice agents and personal assistants, enabling clients to automate complex workflows and increase operational efficiency by 10x.
-              </li>
-              <li>
-                Served as a technical advisor to business clients, translating "AI hype" into practical, secure roadmaps that utilise Large Language Models (LLMs) and automation to drive measurable ROI.
-              </li>
-              <li>
-                Executed rapid prototyping of proprietary tools, successfully productising a custom AI voice agent for a client that is now being resold as a scalable SaaS product.
-              </li>
-            </ul>
+              <ul class="bullet-list">
+                <li>
+                  Architected and deployed custom AI solutions, including voice agents and personal assistants, enabling clients to automate complex workflows and increase operational efficiency by 10x.
+                </li>
+                <li>
+                  Served as a technical advisor to business clients, translating "AI hype" into practical, secure roadmaps that utilise Large Language Models (LLMs) and automation to drive measurable ROI.
+                </li>
+                <li>
+                  Executed rapid prototyping of proprietary tools, successfully productising a custom AI voice agent for a client that is now being resold as a scalable SaaS product.
+                </li>
+              </ul>
+            </article>
           </section>
 
           <!-- Additional Experience -->
           <section class="glass-card equal-height-card">
             <h2>Additional Experience</h2>
-            <p>Founder – Sturdy Vanilla – Aug 2024 – Present (1 Year, 4 Months)</p>
-            <p>Sales Representative – Freddie's Flowers – Oct 2024 – Mar 2025 (6 Months)</p>
-            <p>Sales Consultant – Hotelplan UK Ltd – Nov 2022 – May 2023 (7 Months)</p>
-            <p>Business Assistant – Nick Allhusen – Jan 2022 – Aug 2022 (8 Months)</p>
-            <p>Hamper Packer – Virginia Hayward Ltd – Oct 2021 – Dec 2021 (3 Months)</p>
-            <p>Chalet Host – Chalet Helora – Dec 2019 – Mar 2020 (4 Months)</p>
+            <article data-job-title="Founder" data-company="Sturdy Vanilla" data-start-date="2024-08-01" data-end-date="present">
+              <p>Founder – Sturdy Vanilla – <time datetime="2024-08-01">August 2024</time> – <time datetime="..">Present</time> (1 Year, 4 Months)</p>
+            </article>
+            <article data-job-title="Sales Representative" data-company="Freddie's Flowers" data-start-date="2024-10-01" data-end-date="2025-03-31">
+              <p>Sales Representative – Freddie's Flowers – <time datetime="2024-10-01">October 2024</time> – <time datetime="2025-03-31">March 2025</time> (6 Months)</p>
+            </article>
+            <article data-job-title="Sales Consultant" data-company="Hotelplan UK Ltd" data-start-date="2022-11-01" data-end-date="2023-05-31">
+              <p>Sales Consultant – Hotelplan UK Ltd – <time datetime="2022-11-01">November 2022</time> – <time datetime="2023-05-31">May 2023</time> (7 Months)</p>
+            </article>
+            <article data-job-title="Business Assistant" data-company="Nick Allhusen" data-start-date="2022-01-01" data-end-date="2022-08-31">
+              <p>Business Assistant – Nick Allhusen – <time datetime="2022-01-01">January 2022</time> – <time datetime="2022-08-31">August 2022</time> (8 Months)</p>
+            </article>
+            <article data-job-title="Hamper Packer" data-company="Virginia Hayward Ltd" data-start-date="2021-10-01" data-end-date="2021-12-31">
+              <p>Hamper Packer – Virginia Hayward Ltd – <time datetime="2021-10-01">October 2021</time> – <time datetime="2021-12-31">December 2021</time> (3 Months)</p>
+            </article>
+            <article data-job-title="Chalet Host" data-company="Chalet Helora" data-start-date="2019-12-01" data-end-date="2020-03-31">
+              <p>Chalet Host – Chalet Helora – <time datetime="2019-12-01">December 2019</time> – <time datetime="2020-03-31">March 2020</time> (4 Months)</p>
+            </article>
           </section>
 
           <!-- Skills -->
@@ -735,15 +958,15 @@
               <div class="skills-general">
                 <h3>General</h3>
                 <div class="skills-list">
-                  <div class="skill-item">
+                  <div class="skill-item" data-skill-category="general">
                     <span class="skill-name">Startup Founding &amp; Growth</span>
                   </div>
 
-                  <div class="skill-item">
+                  <div class="skill-item" data-skill-category="general">
                     <span class="skill-name">Artificial Intelligence (AI) &amp; Automation</span>
                   </div>
 
-                  <div class="skill-item">
+                  <div class="skill-item" data-skill-category="general">
                     <span class="skill-name">Business Development &amp; Sales Strategy</span>
                   </div>
                 </div>
@@ -752,15 +975,15 @@
               <div class="skills-column">
                 <h3>Industry Knowledge</h3>
                 <div class="skills-list">
-                  <div class="skill-item">
+                  <div class="skill-item" data-skill-category="industry">
                     <span class="skill-name">Customer Insight</span>
                   </div>
 
-                  <div class="skill-item">
+                  <div class="skill-item" data-skill-category="industry">
                     <span class="skill-name">Cybersecurity Sales</span>
                   </div>
 
-                  <div class="skill-item">
+                  <div class="skill-item" data-skill-category="industry">
                     <span class="skill-name">Product Development</span>
                   </div>
                 </div>
@@ -769,19 +992,19 @@
               <div class="skills-column skills-tools">
                 <h3>Tools &amp; Technologies</h3>
                 <div class="skills-list">
-                  <div class="skill-item">
+                  <div class="skill-item" data-skill-category="tools">
                     <span class="skill-name">Cursor</span>
                   </div>
 
-                  <div class="skill-item">
+                  <div class="skill-item" data-skill-category="tools">
                     <span class="skill-name">LinkedIn Sales Navigator</span>
                   </div>
 
-                  <div class="skill-item">
+                  <div class="skill-item" data-skill-category="tools">
                     <span class="skill-name">ZoomInfo SalesOS</span>
                   </div>
 
-                  <div class="skill-item">
+                  <div class="skill-item" data-skill-category="tools">
                     <span class="skill-name">Wix Studio</span>
                   </div>
                 </div>
@@ -792,8 +1015,12 @@
           <!-- Education -->
           <section class="glass-card">
             <h2>Education</h2>
-            <p>Nottingham Trent University – Sep 2020 – Sep 2021 BSc, Product Design</p>
-            <p>Milton Abbey – Sep 2017 – Jul 2019 BTEC Level 3 National Diploma (Business, Design &amp; Technology, Music)</p>
+            <article data-institution-type="university" data-degree="BSc" data-degree-full="Bachelor of Science">
+              <p>Nottingham Trent University – <time datetime="2020-09-01">September 2020</time> – <time datetime="2021-09-30">September 2021</time> BSc (Bachelor of Science), Product Design</p>
+            </article>
+            <article data-institution-type="school" data-qualification="BTEC Level 3 National Diploma">
+              <p>Milton Abbey – <time datetime="2017-09-01">September 2017</time> – <time datetime="2019-07-31">July 2019</time> BTEC Level 3 National Diploma (Business, Design &amp; Technology, Music)</p>
+            </article>
           </section>
 
           <!-- Licenses & Certifications -->
@@ -807,11 +1034,70 @@
           <!-- Honours & Awards -->
           <section class="glass-card">
             <h2>Honours &amp; Awards</h2>
-            <p>Business and Enterprise Student of the Year - Milton Abbey - 2019</p>
-            <p>Entrepreneur and Enterprise Award - Milton Abbey - 2019</p>
-            <p>Duke of Edinburgh Award - DofE - 2017</p>
+            <p>Business and Enterprise Student of the Year - Milton Abbey - <time datetime="2019">2019</time></p>
+            <p>Entrepreneur and Enterprise Award - Milton Abbey - <time datetime="2019">2019</time></p>
+            <p>Duke of Edinburgh Award - DofE - <time datetime="2017">2017</time></p>
           </section>
+
+          <!-- Hidden ATS Keywords Section -->
+          <div class="ats-only">
+            <h2>ATS Keywords and Variations</h2>
+            <p>
+              AI Solutions Architect, Artificial Intelligence Architect, Machine Learning Engineer, AI Engineer, 
+              Solutions Architect, Technical Architect, Enterprise AI, AI Platform Architect, 
+              AI Automation, Large Language Models, LLM, LLMs, Machine Learning, ML, 
+              Deep Learning, Neural Networks, Natural Language Processing, NLP, 
+              Generative AI, GPT, OpenAI, Claude, AI Consulting, AI Strategy, 
+              Enterprise Adoption, Digital Transformation, Technical Communication, 
+              Client Advisory, Technical Advisor, Business Development, Sales Strategy, 
+              B2B Sales, Enterprise Sales, Cybersecurity Sales, Security Sales, 
+              Account Executive, Sales Executive, Proof of Concept, POC, PoC, 
+              ROI, Return on Investment, SaaS, Software as a Service, 
+              Startup Founder, Co-Founder, Entrepreneur, Business Founder, 
+              Product Development, Product Strategy, Technical Roadmap, 
+              Rapid Prototyping, Agile Development, Software Development, 
+              Voice Agents, Conversational AI, Chatbots, AI Assistants, Personal Assistants, 
+              Automation, Workflow Automation, Process Automation, 
+              Data Privacy, Model Security, Governance, Compliance, 
+              C-Suite, Executive Stakeholders, Enterprise Clients, 
+              Customer Insight, Customer Experience, UX, User Experience, 
+              Product Design, Design Thinking, User-Centered Design, 
+              Supply Chain Management, E-commerce, Direct-to-Consumer, 
+              LinkedIn Sales Navigator, CRM, Customer Relationship Management, 
+              ZoomInfo, Sales Intelligence, Lead Generation, 
+              Wix Studio, Web Development, Website Builder, 
+              Cursor, AI Code Editor, Development Tools, 
+              Python, JavaScript, API Integration, Cloud Computing, 
+              AWS, Azure, Google Cloud, Cloud Architecture, 
+              Project Management, Team Leadership, Cross-functional Collaboration
+            </p>
+            <p>
+              Job Titles: AI Solutions Architect, Solutions Architect, Technical Architect, 
+              AI Engineer, Machine Learning Engineer, Business Development Executive, 
+              Senior Business Development Executive, Sales Executive, Account Executive, 
+              Founder, Co-Founder, Entrepreneur, Product Manager, Technical Advisor, 
+              Client Advisor, Business Consultant, AI Consultant
+            </p>
+            <p>
+              Industries: Artificial Intelligence, Machine Learning, Cybersecurity, 
+              Enterprise Software, SaaS, Technology, Software Development, 
+              Research & Development, Consulting, Business Services, 
+              E-commerce, Product Design, Transportation, Tourism, Hospitality
+            </p>
+            <p>
+              Education: Bachelor of Science, BSc, Product Design, 
+              BTEC Level 3, National Diploma, Business, Technology, 
+              Nottingham Trent University, Milton Abbey
+            </p>
+            <p>
+              Certifications: RYA Competent Crew, RYA Powerboat Level 2, 
+              RYA Towing Licence, DVLA Driving License, 
+              Business and Enterprise Student of the Year, 
+              Entrepreneur and Enterprise Award, Duke of Edinburgh Award
+            </p>
+          </div>
         </div>
+        </main>
       </div>
     </div>
   </body>

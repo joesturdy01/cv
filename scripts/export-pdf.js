@@ -97,7 +97,13 @@ async function exportPdf() {
     // Additional wait to ensure all rendering, layout, and CSS transitions are complete
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    // Generate PDF with exact A4 dimensions
+    // Set PDF metadata for ATS compatibility
+    await page.evaluate(() => {
+      // This metadata will be embedded in the PDF
+      document.title = 'Joe Sturdy - AI Solutions Architect CV';
+    });
+
+    // Generate PDF with exact A4 dimensions and metadata
     await page.pdf({
       path: outputPath,
       width: '210mm',
@@ -106,7 +112,15 @@ async function exportPdf() {
       preferCSSPageSize: true,
       margin: { top: 0, bottom: 0, left: 0, right: 0 },
       scale: 1,
+      displayHeaderFooter: false,
+      // PDF metadata for ATS systems
+      tag: true, // Enable PDF tagging for accessibility
+      outline: true, // Generate document outline/bookmarks
     });
+
+    // Add PDF metadata after generation using a separate approach
+    // Puppeteer doesn't directly support all metadata fields, but we can set document title
+    // Additional metadata will be preserved from HTML meta tags
 
     console.log(`PDF exported successfully to ${outputPath}`);
   } catch (error) {
