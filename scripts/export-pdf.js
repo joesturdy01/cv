@@ -2,15 +2,21 @@ const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
 
+/**
+ * Generates an A4 PDF version of the CV using Puppeteer.
+ * Think of it like asking a robot browser to print the page for us.
+ * @returns {Promise<void>}
+ */
 async function exportPdf() {
   const projectRoot = path.resolve(__dirname, '..');
   const htmlPath = path.join(projectRoot, 'index.html');
-  const outputPath = path.join(projectRoot, 'Joe-Sturdy-CV.pdf');
+  const outputPath = path.join(projectRoot, 'dist', 'Joe-Sturdy-CV.pdf');
 
   if (!fs.existsSync(htmlPath)) {
     throw new Error(`index.html not found at ${htmlPath}`);
   }
 
+  // Launch a headless (invisible) browser that can render the CV.
   const browser = await puppeteer.launch({
     headless: 'new',
     args: [
@@ -22,9 +28,9 @@ async function exportPdf() {
 
   try {
     const page = await browser.newPage();
-    
-    // Set viewport to exact A4 dimensions (210mm × 297mm)
-    // 1mm = 3.779527559 pixels at 96 DPI
+
+    // Force the viewport to match an A4 sheet so layout never shifts.
+    // 1mm = 3.779527559 pixels at 96 DPI.
     const a4Width = 210 * 3.779527559;
     const a4Height = 297 * 3.779527559;
     await page.setViewport({
@@ -32,24 +38,24 @@ async function exportPdf() {
       height: Math.round(a4Height),
       deviceScaleFactor: 2, // Higher DPI for better quality
     });
-    
-    // Enable print media emulation
+
+    // Pretend we are printing so the @media print CSS kicks in.
     await page.emulateMediaType('print');
 
     const fileUrl = new URL(`file://${htmlPath}`);
-    
-    // Navigate and wait for all resources to load
+
+    // Open the local HTML file and wait until nothing else is loading.
     await page.goto(fileUrl.href, { 
       waitUntil: 'networkidle0',
       timeout: 30000,
     });
 
-    // Wait for fonts to load
+    // Make sure custom fonts are ready before capturing the PDF.
     await page.evaluate(async () => {
       await document.fonts.ready;
     });
-    
-    // Wait for all images to load
+
+    // Wait for normal <img> tags so nothing looks broken.
     await page.evaluate(async () => {
       const images = Array.from(document.images);
       await Promise.all(
@@ -65,7 +71,7 @@ async function exportPdf() {
       );
     });
 
-    // Wait for background images to load
+    // Also wait for CSS background images (like the gold/black texture).
     await page.evaluate(async () => {
       const bgImages = [];
       const allElements = document.querySelectorAll('*');
@@ -94,16 +100,56 @@ async function exportPdf() {
       );
     });
 
-    // Additional wait to ensure all rendering, layout, and CSS transitions are complete
+    // Small pause so any remaining animations/transitions finish up.
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    // Set PDF metadata for ATS compatibility
+    // Clean up tel: and mailto: links so PDFs keep them clickable.
+    await page.evaluate(() => {
+      // Find all tel: links and ensure they're properly formatted
+      const telLinks = document.querySelectorAll('a[href^="tel:"]');
+      telLinks.forEach((link) => {
+        // Ensure the href is properly formatted with international format
+        const telNumber = link.getAttribute('href');
+        if (telNumber && telNumber.startsWith('tel:')) {
+          // Normalize the tel: URI format
+          const phoneNumber = telNumber.replace('tel:', '').trim();
+          // Ensure it starts with + for international format
+          const normalizedTel = phoneNumber.startsWith('+') 
+            ? `tel:${phoneNumber}` 
+            : `tel:+${phoneNumber}`;
+          link.setAttribute('href', normalizedTel);
+          
+          // Add additional attributes for better PDF compatibility
+          link.setAttribute('data-phone', phoneNumber);
+          if (!link.getAttribute('title')) {
+            link.setAttribute('title', `Call ${phoneNumber}`);
+          }
+          
+          // Ensure link is not prevented from being clickable
+          link.style.pointerEvents = 'auto';
+          link.style.cursor = 'pointer';
+        }
+      });
+      
+      // Also ensure mailto: links are properly formatted
+      const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
+      mailtoLinks.forEach((link) => {
+        if (!link.getAttribute('title')) {
+          const email = link.getAttribute('href').replace('mailto:', '');
+          link.setAttribute('title', `Email ${email}`);
+        }
+        link.style.pointerEvents = 'auto';
+        link.style.cursor = 'pointer';
+      });
+    });
+
+    // Set document title so the PDF carries meaningful metadata.
     await page.evaluate(() => {
       // This metadata will be embedded in the PDF
       document.title = 'Joe Sturdy - AI Solutions Architect CV';
     });
 
-    // Generate PDF with exact A4 dimensions and metadata
+    // Finally, print the page to PDF with background colors included.
     await page.pdf({
       path: outputPath,
       width: '210mm',
@@ -118,15 +164,14 @@ async function exportPdf() {
       outline: true, // Generate document outline/bookmarks
     });
 
-    // Add PDF metadata after generation using a separate approach
-    // Puppeteer doesn't directly support all metadata fields, but we can set document title
-    // Additional metadata will be preserved from HTML meta tags
+    // Puppeteer keeps the meta tags we set in HTML, so no extra work needed here.
 
     console.log(`PDF exported successfully to ${outputPath}`);
   } catch (error) {
     console.error('Error generating PDF:', error);
     throw error;
   } finally {
+    // Always close the browser so no background processes linger.
     await browser.close();
   }
 }

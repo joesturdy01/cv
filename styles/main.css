@@ -1,0 +1,407 @@
+/* ========================
+   1. Theme Variables
+   These act like paint colors the whole CV reuses.
+   ======================== */
+:root {
+  --bg-dark: #020204;
+  --bg-dark-alt: #050608;
+  --bg-card: rgba(8, 8, 10, 0.85);
+  --glass-highlight: rgba(255, 255, 255, 0.16);
+  --gold: #f4c96b;
+  --gold-soft: #f0d89a;
+  --gold-deep: #b38130;
+  --text-main: #ffffff;
+  --text-muted: #d0d3dc;
+  --border-subtle: rgba(255, 255, 255, 0.22);
+  --shadow-soft: 0 32px 80px rgba(0, 0, 0, 0.95);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-pill: 999px;
+}
+
+/* ========================
+   2. Base Elements & Resets
+   Keep defaults predictable across browsers.
+   ======================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
+    "SF Pro Text", "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+  color: var(--text-main);
+  background: url("../assets/Futuristic-Gold-and-Black.jpg") center / cover no-repeat
+    fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 1.7rem;
+}
+
+h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+h3 {
+  font-size: 0.92rem;
+  color: var(--gold-soft);
+}
+
+p,
+.skill-name,
+.bullet-list {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  font-weight: 400;
+  color: var(--text-main);
+}
+
+/* ========================
+   3. Layout Wrappers
+   Arrange the CV into fixed A4 proportions.
+   ======================== */
+.cv-shell {
+  width: 210mm;
+  max-width: 210mm;
+  min-width: 210mm;
+  min-height: 297mm;
+  padding: 0;
+  border-radius: 0;
+  position: relative;
+  background: transparent;
+}
+
+.cv-shell-inner {
+  width: 100%;
+  min-height: calc(297mm - 40px);
+  border-radius: 25px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: min-content;
+  gap: 20px;
+  width: 100%;
+  min-height: calc(297mm - 40px);
+  padding: 20px 20px 20px 20px;
+  margin: 20px 0;
+  border-radius: 25px;
+  background: rgba(8, 8, 16, 0.25);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  align-content: start;
+}
+
+.card-grid > .glass-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-card {
+  grid-row: span 3;
+}
+
+.card-span-2 {
+  grid-column: 1 / -1;
+}
+
+.equal-height-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.personal-info-layout {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.personal-info-layout .info-block {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ========================
+   4. Card Components
+   Cover the repeating visual blocks.
+   ======================== */
+.glass-card {
+  position: relative;
+  border-radius: 25px;
+  background: rgba(8, 8, 16, 0.25);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), var(--shadow-soft);
+  border: 1px solid var(--border-subtle);
+  padding: 20px;
+  transition: transform 220ms ease, box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.95);
+  border-color: rgba(244, 201, 107, 0.9);
+}
+
+.glass-card h2 {
+  margin-bottom: 8px;
+}
+
+.glass-card h3 {
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+.glass-card p + p,
+.glass-card h2 + p,
+.glass-card h3 + p,
+.glass-card h2 + ul,
+.glass-card h3 + ul {
+  margin-top: 6px;
+}
+
+.info-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.info-bubble {
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(8, 8, 16, 0.25);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.08),
+    0 18px 40px rgba(0, 0, 0, 0.8);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-style: normal;
+  color: var(--text-main);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.info-bubbles .info-bubble:first-child,
+.info-bubbles .info-bubble:nth-child(2) {
+  flex: 0 0 calc(50% - 10px);
+  justify-content: center;
+}
+
+.avatar-circle {
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar-circle img {
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--gold);
+}
+
+.bullet-list {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.bullet-list li + li {
+  margin-top: 2px;
+}
+
+/* ========================
+   5. Skills Layout
+   Handles the multi-column skill badges.
+   ======================== */
+.skills-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  align-items: flex-start;
+}
+
+.skills-column {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.skills-general {
+  flex: 1 1 0;
+  min-width: 0;
+  flex-basis: 100%;
+}
+
+.skills-tools {
+  flex-basis: 100%;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/* ========================
+   6. Print / PDF Overrides
+   Forces the same look when Puppeteer prints.
+   ======================== */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html,
+  body {
+    width: 210mm !important;
+    min-height: 350mm !important;
+    background-color: var(--bg-dark) !important;
+    background-image: url("../assets/Futuristic-Gold-and-Black.jpg") !important;
+    background-size: 210mm 297mm !important;
+    background-repeat: repeat-y !important;
+    background-position: 0 0 !important;
+  }
+
+  body {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+  }
+
+  .cv-shell {
+    padding: 20px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .card-grid {
+    padding: 15px !important;
+    gap: 15px !important;
+    min-height: calc(297mm - 40px) !important;
+    background: rgba(8, 8, 16, 0.32) !important;
+  }
+
+  .glass-card {
+    background: rgba(8, 8, 16, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4) !important;
+    padding: 15px !important;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  .card-grid > section:nth-child(-n + 5) {
+    page-break-after: avoid;
+  }
+
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}
+
+/* Extra Safari-focused rule to keep colors when printing. */
+@media print and (-webkit-min-device-pixel-ratio: 0) {
+  body {
+    -webkit-print-color-adjust: exact !important;
+  }
+}
+
+/* ========================
+   7. Accessibility Helpers
+   Hidden text still read by screen readers / ATS.
+   ======================== */
+.ats-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+}
+
+.ats-only:not(:focus):not(:active) {
+  clip-path: inset(50%);
+}
+

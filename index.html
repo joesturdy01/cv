@@ -11,6 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- External stylesheet keeps structure and styles apart so each is easy to tweak -->
+    <link rel="stylesheet" href="styles/main.css" />
     <meta
       name="description"
       content="Curriculum Vitae of Joe Sturdy – AI Solutions Architect and Founder specialising in AI platforms, automation and enterprise adoption. Expertise in scalable AI-powered platforms, enterprise adoption, technical communication, client advisory, cybersecurity sales, business development, and startup founding."
@@ -28,658 +30,8 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Joe Sturdy – AI Solutions Architect CV" />
     <meta name="twitter:description" content="AI Solutions Architect and Founder specialising in AI platforms, automation and enterprise adoption." />
-    <style>
-      /* ---------- Base & Layout ---------- */
-      :root {
-        /* Black / gold / white palette inspired by glassmorphism reference */
-        --bg-dark: #020204;
-        --bg-dark-alt: #050608;
-        --bg-card: rgba(8, 8, 10, 0.85);
-        --glass-highlight: rgba(255, 255, 255, 0.16);
-        --gold: #f4c96b;
-        --gold-soft: #f0d89a;
-        --gold-deep: #b38130;
-        --text-main: #ffffff;
-        --text-muted: #d0d3dc;
-        --border-subtle: rgba(255, 255, 255, 0.22);
-        --shadow-soft: 0 32px 80px rgba(0, 0, 0, 0.95);
-        --radius-lg: 28px;
-        --radius-md: 20px;
-        --radius-pill: 999px;
-      }
-
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
-          "SF Pro Text", "Segoe UI", sans-serif;
-      }
-
-      html {
-        width: 100%;
-        height: 100%;
-        -webkit-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
-          "SF Pro Text", "Segoe UI", sans-serif;
-        color: #ffffff;
-        background: url("Futuristic-Gold-and-Black.jpg") center center / cover
-          no-repeat fixed;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .cv-shell {
-        width: 210mm;
-        max-width: 210mm;
-        min-width: 210mm;
-        min-height: 297mm;
-        /* Remove outer "ring" look */
-        border-radius: 0;
-        padding: 20px;
-        position: relative;
-        overflow: visible;
-        box-shadow: none;
-        background: transparent;
-        box-sizing: border-box;
-      }
-
-      .cv-shell::before {
-        content: none;
-      }
-
-      .cv-shell-inner {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        height: auto;
-        min-height: calc(297mm - 40px);
-        border-radius: 25px;
-        padding: 0;
-        background: transparent;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        box-sizing: border-box;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        overflow: visible;
-      }
-
-
-      .glass-card {
-        position: relative;
-        border-radius: 25px;
-        background: rgba(8, 8, 16, 0.25);
-        backdrop-filter: blur(24px) saturate(150%);
-        -webkit-backdrop-filter: blur(24px) saturate(150%);
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04),
-          0 32px 80px rgba(0, 0, 0, 0.95);
-        border: 1px solid var(--border-subtle);
-        padding: 20px;
-        overflow: visible;
-        transition: transform 220ms ease, box-shadow 220ms ease,
-          border-color 220ms ease;
-        box-sizing: border-box;
-        min-height: 0;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        will-change: transform;
-      }
-
-      .glass-card:hover {
-        transform: translateY(-6px) translateZ(0);
-        box-shadow: 0 26px 60px rgba(0, 0, 0, 0.95);
-        border-color: rgba(244, 201, 107, 0.9);
-      }
-
-      h1,
-      h2,
-      h3,
-      h4 {
-        margin: 0;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
-          "SF Pro Text", "Segoe UI", sans-serif;
-      }
-
-      h1 {
-        font-size: 1.7rem;
-        font-weight: 600;
-      }
-
-      h2 {
-        font-size: 1rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: var(--gold);
-      }
-
-      h3 {
-        font-size: 0.92rem;
-        font-weight: 600;
-        color: var(--gold-soft);
-      }
-
-      p {
-        margin: 0;
-        color: #ffffff;
-        font-size: 0.78rem;
-        font-weight: 400;
-        line-height: 1.35;
-        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
-          "SF Pro Text", "Segoe UI", sans-serif;
-      }
-
-      /* Consistent spacing inside cards */
-      .glass-card h2 {
-        margin-bottom: 8px;
-      }
-
-      .glass-card h3 {
-        margin-top: 6px;
-        margin-bottom: 4px;
-      }
-
-      .glass-card p + p {
-        margin-top: 6px;
-      }
-
-      .glass-card h2 + p,
-      .glass-card h3 + p,
-      .glass-card h2 + ul,
-      .glass-card h3 + ul {
-        margin-top: 6px;
-      }
-
-
-      .info-bubbles {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 6px;
-      }
-
-      .info-bubble {
-        position: relative;
-        padding: 7px 14px;
-        border-radius: var(--radius-pill);
-        border: 1px solid rgba(255, 255, 255, 0.24);
-        background: rgba(8, 8, 16, 0.25);
-        backdrop-filter: blur(18px) saturate(150%);
-        -webkit-backdrop-filter: blur(18px) saturate(150%);
-        box-shadow:
-          inset 0 0 0 0.5px rgba(255, 255, 255, 0.08),
-          0 18px 40px rgba(0, 0, 0, 0.8);
-        font-size: 0.78rem;
-        font-weight: 400;
-        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
-          "SF Pro Text", "Segoe UI", sans-serif;
-        color: #ffffff;
-        white-space: nowrap;
-        max-width: max-content;
-        word-break: normal;
-        text-decoration: none;
-        overflow: visible;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-      }
-
-
-      .info-bubbles a.info-bubble {
-        width: auto;
-        text-align: left;
-        max-width: max-content;
-        white-space: nowrap;
-        word-break: normal;
-        margin-right: 12px;
-        display: inline-flex;
-        align-items: center;
-      }
-
-      .info-bubbles .info-bubble:first-child,
-      .info-bubbles .info-bubble:nth-child(2) {
-        flex: 0 0 calc(50% - 10px);
-        justify-content: center;
-      }
-
-
-
-      .avatar-circle {
-        width: 120px;
-        height: 120px;
-        aspect-ratio: 1 / 1;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-
-      .avatar-circle img {
-        width: 75%;
-        height: 75%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 1px solid var(--gold);
-        display: block;
-      }
-
-
-      /* ---------- Main Grid ---------- */
-      .card-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-auto-rows: min-content;
-        gap: 20px;
-        width: 100%;
-        min-height: calc(297mm - 40px);
-        height: auto;
-        border-radius: 25px;
-        padding: 20px;
-        background: rgba(8, 8, 16, 0.25);
-        backdrop-filter: blur(24px) saturate(150%);
-        -webkit-backdrop-filter: blur(24px) saturate(150%);
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-        margin: 0;
-        justify-items: stretch;
-        align-items: start;
-        box-sizing: border-box;
-        align-content: start;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        overflow: visible;
-      }
-
-      .card-grid > .glass-card {
-        width: 100%;
-        min-height: 0;
-        overflow: visible;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .skills-card {
-        grid-row: span 3;
-        align-self: stretch;
-      }
-
-      .equal-height-card {
-        align-self: stretch;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-
-      .card-span-2 {
-        grid-column: 1 / -1;
-      }
-
-      .personal-info-layout {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: nowrap;
-      }
-
-      .personal-info-layout .info-block {
-        flex: 1;
-        min-width: 0;
-        margin-right: 0;
-        padding-right: 0;
-      }
-
-
-      .bullet-list {
-        margin: 0;
-        padding-left: 16px;
-        font-size: 0.78rem;
-        font-weight: 400;
-        color: #ffffff;
-        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
-          "SF Pro Text", "Segoe UI", sans-serif;
-      }
-
-      .bullet-list li {
-        font-size: 0.78rem;
-        font-weight: 400;
-        color: #ffffff;
-        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
-          "SF Pro Text", "Segoe UI", sans-serif;
-      }
-
-      .bullet-list li + li {
-        margin-top: 2px;
-      }
-
-
-      /* ---------- Skills Card ---------- */
-      .skills-layout {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 10px;
-        align-items: flex-start;
-      }
-
-      .skills-list {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .skill-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-      }
-
-      .skill-name {
-        font-size: 0.78rem;
-        font-weight: 400;
-        color: #ffffff;
-        font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
-          "SF Pro Text", "Segoe UI", sans-serif;
-      }
-
-      .skills-column h3 {
-        font-size: 0.92rem;
-        font-weight: 600;
-      }
-
-      .skills-general {
-        flex-basis: 100%;
-      }
-
-      .skills-column .skills-list {
-        margin-top: 4px;
-      }
-
-      .skills-column {
-        flex: 1 1 0;
-        min-width: 0;
-      }
-
-      .skills-tools {
-        flex-basis: 100%;
-      }
-
-
-      /* ---------- Print / A4 PDF Styles ---------- */
-      @media print {
-        @page {
-          size: A4;
-          margin: 0;
-          /* Ensure Safari uses exact A4 dimensions */
-          width: 210mm;
-          height: 297mm;
-        }
-
-        * {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          color-adjust: exact !important;
-          font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
-            "SF Pro Text", "Segoe UI", sans-serif !important;
-        }
-
-        html {
-          width: 210mm !important;
-          height: 350mm !important;
-          min-height: 350mm !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          background-color: #020204 !important;
-          background-image: url("Futuristic-Gold-and-Black.jpg") !important;
-          background-size: 210mm 297mm !important;
-          background-repeat: repeat-y !important;
-          background-position: 0 0 !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-
-        body {
-          width: 210mm !important;
-          max-width: 210mm !important;
-          height: 350mm !important;
-          min-height: 350mm !important;
-          margin: 0 auto !important;
-          padding: 0 !important;
-          color: #ffffff !important;
-          background-color: #020204 !important;
-          background-image: url("Futuristic-Gold-and-Black.jpg") !important;
-          background-size: 210mm 297mm !important;
-          background-repeat: repeat-y !important;
-          background-position: 0 0 !important;
-          display: flex !important;
-          justify-content: center !important;
-          align-items: flex-start !important;
-          position: relative !important;
-          overflow: visible !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-
-        .cv-shell {
-          width: 210mm !important;
-          max-width: 210mm !important;
-          min-width: 210mm !important;
-          min-height: 297mm !important;
-          height: auto !important;
-          padding: 20px !important;
-          margin: 0 auto !important;
-          background: transparent !important;
-          box-shadow: none !important;
-          position: relative !important;
-          z-index: 1 !important;
-        }
-
-        .cv-shell-inner {
-          height: auto !important;
-          min-height: calc(297mm - 40px) !important;
-          position: relative !important;
-        }
-
-        /* Force background to extend to bottom by ensuring body/html height matches content */
-        body,
-        html {
-          height: auto !important;
-        }
-
-        /* Calculate actual content height and ensure background covers it */
-        .cv-shell {
-          padding-bottom: 40px !important;
-        }
-
-        .card-grid {
-          min-height: calc(297mm - 40px) !important;
-          height: auto !important;
-          background: rgba(8, 8, 16, 0.32) !important;
-          padding: 15px !important;
-          gap: 15px !important;
-          border-radius: 25px !important;
-          box-shadow: none !important;
-          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          align-content: start !important;
-          overflow: visible !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-
-        .glass-card {
-          background: rgba(8, 8, 16, 0.5) !important;
-          border: 1px solid rgba(255, 255, 255, 0.1) !important;
-          box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4) !important;
-          padding: 15px !important;
-          border-radius: 25px !important;
-          overflow: visible !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          backdrop-filter: blur(24px) saturate(150%) !important;
-          -webkit-backdrop-filter: blur(24px) saturate(150%) !important;
-        }
-
-        .glass-card h2 {
-          margin-bottom: 6px !important;
-        }
-
-        .glass-card h3 {
-          margin-top: 4px !important;
-          margin-bottom: 3px !important;
-        }
-
-        .glass-card p + p {
-          margin-top: 4px !important;
-        }
-
-        .glass-card h2 + p,
-        .glass-card h3 + p,
-        .glass-card h2 + ul,
-        .glass-card h3 + ul {
-          margin-top: 4px !important;
-        }
-
-        .bullet-list {
-          margin-top: 4px !important;
-        }
-
-        .bullet-list li + li {
-          margin-top: 1px !important;
-        }
-
-        .card-span-2 {
-          grid-column: 1 / -1 !important;
-        }
-
-        .skills-card {
-          grid-row: span 3 !important;
-        }
-
-        .card-grid > * {
-          min-width: 0 !important;
-        }
-
-        section {
-          page-break-inside: avoid;
-          break-inside: avoid;
-        }
-
-        /* Keep first 5 sections (Personal Info through Additional Experience) together on page 1 */
-        .card-grid > section:nth-child(1),
-        .card-grid > section:nth-child(2),
-        .card-grid > section:nth-child(3),
-        .card-grid > section:nth-child(4),
-        .card-grid > section:nth-child(5) {
-          page-break-after: avoid;
-          break-after: avoid;
-        }
-
-        /* Page break before Skills to start Page 2 with Skills */
-        .page-break-before {
-          page-break-before: always;
-          break-before: page;
-        }
-
-        .card-grid > section:nth-last-child(1),
-        .card-grid > section:nth-last-child(2) {
-          break-after: auto;
-        }
-
-        /* Ensure images and backgrounds render correctly in Safari */
-        img {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          max-width: 100% !important;
-          height: auto !important;
-        }
-
-        .avatar-circle img {
-          border: 1px solid var(--gold) !important;
-        }
-
-        /* Ensure info bubbles maintain styling */
-        .info-bubble {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          background: rgba(8, 8, 16, 0.25) !important;
-          border: 1px solid rgba(255, 255, 255, 0.24) !important;
-        }
-
-        /* Prevent Safari from removing background images */
-        .cv-shell-inner,
-        .card-grid,
-        .glass-card {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-
-        /* Ensure fonts are loaded before print */
-        @font-face {
-          font-family: "Tomorrow";
-          font-display: swap;
-        }
-
-        /* Safari-specific: Ensure all elements maintain their visual appearance */
-        a {
-          color: inherit !important;
-          text-decoration: none !important;
-        }
-
-        /* Prevent Safari from adjusting colors or backgrounds */
-        *::before,
-        *::after {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-      }
-
-      /* Additional Safari print media query for better compatibility */
-      @media print and (-webkit-min-device-pixel-ratio: 0) {
-        body {
-          -webkit-print-color-adjust: exact !important;
-        }
-      }
-
-      /* ---------- ATS-Only Hidden Text (Screen Reader Accessible) ---------- */
-      .ats-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-        font-size: 0;
-        line-height: 0;
-      }
-
-      /* Ensure ATS-only content is not visible but remains in DOM */
-      .ats-only:not(:focus):not(:active) {
-        clip: rect(0 0 0 0);
-        clip-path: inset(50%);
-      }
-    </style>
-    <!-- Schema.org Structured Data -->
+    
+    <!-- Schema.org structured data tells search engines who this CV belongs to -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -825,15 +177,15 @@
         <main>
           <h1 class="ats-only">Joe Sturdy - AI Solutions Architect</h1>
           <div class="card-grid">
-            <!-- Personal Info -->
+            <!-- Personal Info: quick contact hub plus portrait so people know who they're reading about -->
             <header class="glass-card equal-height-card">
               <div class="personal-info-layout">
                 <div class="info-block">
                   <h2>Personal Info</h2>
                   <address class="info-bubbles">
                     <span class="info-bubble">Joe Sturdy</span>
-                    <a class="info-bubble" href="tel:+447785764880">+447785764880</a>
-                    <a class="info-bubble" href="mailto:joesturdy01@icloud.com">joesturdy01@icloud.com</a>
+                    <a class="info-bubble" href="tel:+447785764880" title="Call +44 7785 764880">+447785764880</a>
+                    <a class="info-bubble" href="mailto:joesturdy01@icloud.com" type="email" title="Email joesturdy01@icloud.com">joesturdy01@icloud.com</a>
                     <a
                       class="info-bubble"
                       href="https://www.linkedin.com/in/joesturdy"
@@ -844,12 +196,12 @@
                   </address>
                 </div>
                 <div class="avatar-circle" aria-hidden="true">
-                  <img src="avatar.jpeg" alt="Portrait of Joe Sturdy" />
+                  <img src="assets/avatar.jpeg" alt="Portrait of Joe Sturdy" />
                 </div>
               </div>
             </header>
 
-          <!-- Summary -->
+          <!-- Summary: elevator pitch explaining value in a few sentences -->
           <section class="glass-card equal-height-card">
             <h2>Summary</h2>
             <p>
@@ -857,7 +209,7 @@
             </p>
           </section>
 
-          <!-- Relevant Experience -->
+          <!-- Relevant Experience: timeline of flagship roles showing impact -->
           <section class="glass-card card-span-2">
             <h2>Relevant Experience</h2>
 
@@ -907,7 +259,7 @@
             </article>
           </section>
 
-          <!-- Relevant Projects -->
+          <!-- Relevant Projects: founder-led work proving hands-on build ability -->
           <section class="glass-card equal-height-card">
             <h2>Relevant Projects</h2>
 
@@ -928,7 +280,7 @@
             </article>
           </section>
 
-          <!-- Additional Experience -->
+          <!-- Additional Experience: supporting roles to show breadth -->
           <section class="glass-card equal-height-card">
             <h2>Additional Experience</h2>
             <article data-job-title="Founder" data-company="Sturdy Vanilla" data-start-date="2024-08-01" data-end-date="present">
@@ -951,7 +303,7 @@
             </article>
           </section>
 
-          <!-- Skills -->
+          <!-- Skills: grouped list of strengths so hiring teams can scan fast -->
           <section class="glass-card skills-card page-break-before">
             <h2>Skills</h2>
             <div class="skills-layout">
@@ -1012,7 +364,7 @@
             </div>
           </section>
 
-          <!-- Education -->
+          <!-- Education: degrees and diplomas for credibility -->
           <section class="glass-card">
             <h2>Education</h2>
             <article data-institution-type="university" data-degree="BSc" data-degree-full="Bachelor of Science">
@@ -1023,7 +375,7 @@
             </article>
           </section>
 
-          <!-- Licenses & Certifications -->
+          <!-- Licenses & Certifications: proof of formal qualifications -->
           <section class="glass-card">
             <h2>Licenses &amp; Certifications</h2>
             <p>Competent Crew - RYA</p>
@@ -1031,7 +383,7 @@
             <p>Powerboat Level 2 &amp; Towing Licence - RYA</p>
           </section>
 
-          <!-- Honours & Awards -->
+          <!-- Honours & Awards: recognition that backs up performance -->
           <section class="glass-card">
             <h2>Honours &amp; Awards</h2>
             <p>Business and Enterprise Student of the Year - Milton Abbey - <time datetime="2019">2019</time></p>
@@ -1039,7 +391,7 @@
             <p>Duke of Edinburgh Award - DofE - <time datetime="2017">2017</time></p>
           </section>
 
-          <!-- Hidden ATS Keywords Section -->
+          <!-- Hidden ATS Keywords Section: invisible word bank so applicant tracking systems match the CV to jobs -->
           <div class="ats-only">
             <h2>ATS Keywords and Variations</h2>
             <p>
