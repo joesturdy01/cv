@@ -2,9 +2,13 @@
   "name": "joe-sturdy-cv",
   "version": "1.0.0",
   "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
     "export:pdf": "node scripts/export-pdf.js"
   },
   "dependencies": {
     "puppeteer": "^24.31.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
   }
 }
