@@ -15,7 +15,8 @@
   --border-subtle: rgba(255, 255, 255, 0.22);
   --shadow-soft: 0 32px 80px rgba(0, 0, 0, 0.95);
   --radius-lg: 28px;
-  --radius-md: 20px;
+  --radius-md: 25px;
+  --radius-card: 25px;
   --radius-pill: 999px;
 }
 
@@ -69,11 +70,11 @@ h4 {
 }
 
 h1 {
-  font-size: 1.7rem;
+  font-size: 25px;
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: 20px;
   text-transform: uppercase;
   color: var(--gold);
   font-weight: 600;
@@ -81,21 +82,21 @@ h2 {
 }
 
 h3 {
-  font-size: 0.92rem;
+  font-size: 15px;
   color: var(--gold-soft);
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 p {
-  font-size: 0.78rem;
+  font-size: 13px;
   line-height: 1.5;
   font-weight: 400;
   color: var(--text-main);
 }
 
 .skill-name {
-  font-size: 0.78rem;
+  font-size: 13px;
   line-height: 1.5;
   font-weight: 400;
   color: var(--text-main);
@@ -119,7 +120,7 @@ p {
 .cv-shell-inner {
   width: 100%;
   min-height: calc(297mm - 40px);
-  border-radius: 25px;
+  border-radius: var(--radius-card);
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -135,7 +136,7 @@ p {
   min-height: calc(297mm - 40px);
   padding: 20px 20px 20px 20px;
   margin: 20px 0;
-  border-radius: 25px;
+  border-radius: var(--radius-card);
   background: rgba(8, 8, 16, 0.25);
   backdrop-filter: blur(24px) saturate(150%);
   -webkit-backdrop-filter: blur(24px) saturate(150%);
@@ -170,13 +171,17 @@ p {
   min-width: 0;
 }
 
+.personal-info-layout h2 {
+  white-space: nowrap;
+}
+
 /* ========================
    4. Card Components
    Cover the repeating visual blocks.
    ======================== */
 .glass-card {
   position: relative;
-  border-radius: 25px;
+  border-radius: var(--radius-card);
   background: rgba(8, 8, 16, 0.25);
   backdrop-filter: blur(24px) saturate(150%);
   -webkit-backdrop-filter: blur(24px) saturate(150%);
@@ -196,7 +201,7 @@ p {
 /* Consistent card heading styles */
 .glass-card h2 {
   margin-bottom: 12px;
-  font-size: 1rem;
+  font-size: 20px;
   font-weight: 600;
   text-transform: uppercase;
   color: var(--gold);
@@ -207,7 +212,7 @@ p {
 .glass-card h3 {
   margin-top: 0;
   margin-bottom: 4px;
-  font-size: 0.92rem;
+  font-size: 15px;
   font-weight: 600;
   color: var(--gold-soft);
   letter-spacing: 0.02em;
@@ -230,7 +235,7 @@ p {
 
 /* Consistent paragraph spacing */
 .glass-card p {
-  font-size: 0.78rem;
+  font-size: 13px;
   line-height: 1.5;
   font-weight: 400;
   color: var(--text-main);
@@ -257,7 +262,7 @@ p {
 
 .info-bubble {
   padding: 7px 14px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-card);
   border: 1px solid rgba(255, 255, 255, 0.24);
   background: rgba(8, 8, 16, 0.25);
   backdrop-filter: blur(18px) saturate(150%);
@@ -267,7 +272,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.78rem;
+  font-size: 13px;
   font-style: normal;
   color: var(--text-main);
   text-decoration: none;
@@ -301,7 +306,7 @@ p {
 .bullet-list {
   margin: 6px 0 0 0;
   padding-left: 18px;
-  font-size: 0.78rem;
+  font-size: 13px;
   line-height: 1.5;
   font-weight: 400;
   color: var(--text-main);
@@ -344,7 +349,7 @@ p {
 .skills-general h3 {
   margin-top: 0;
   margin-bottom: 8px;
-  font-size: 0.92rem;
+  font-size: 15px;
   font-weight: 600;
   color: var(--gold-soft);
   letter-spacing: 0.02em;
@@ -429,6 +434,7 @@ p {
     gap: 8px !important;
     min-height: calc(297mm - 16px) !important;
     background: rgba(8, 8, 16, 0.32) !important;
+    border-radius: var(--radius-card) !important;
   }
 
   .glass-card {
@@ -436,6 +442,7 @@ p {
     border: none !important;
     box-shadow: none !important;
     padding: 8px !important;
+    border-radius: var(--radius-card) !important;
   }
 
   .glass-card h2 {
@@ -495,6 +502,7 @@ p {
 
   .info-bubble {
     padding: 8px !important;
+    border-radius: var(--radius-card) !important;
   }
 
   .skills-general + .skills-column,
