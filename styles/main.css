@@ -76,18 +76,27 @@ h2 {
   font-size: 1rem;
   text-transform: uppercase;
   color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 h3 {
   font-size: 0.92rem;
   color: var(--gold-soft);
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-p,
-.skill-name,
-.bullet-list {
+p {
   font-size: 0.78rem;
-  line-height: 1.35;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-main);
+}
+
+.skill-name {
+  font-size: 0.78rem;
+  line-height: 1.5;
   font-weight: 400;
   color: var(--text-main);
 }
@@ -140,10 +149,6 @@ p,
   flex-direction: column;
 }
 
-.skills-card {
-  grid-row: span 3;
-}
-
 .card-span-2 {
   grid-column: 1 / -1;
 }
@@ -188,18 +193,56 @@ p,
   border-color: rgba(244, 201, 107, 0.9);
 }
 
+/* Consistent card heading styles */
 .glass-card h2 {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--gold);
+  letter-spacing: 0.02em;
 }
 
+/* Consistent subheading styles */
 .glass-card h3 {
-  margin-top: 6px;
+  margin-top: 0;
   margin-bottom: 4px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--gold-soft);
+  letter-spacing: 0.02em;
+}
+
+/* Consistent article spacing */
+.glass-card article {
+  margin-top: 12px;
+}
+
+.glass-card article:first-of-type {
+  margin-top: 0;
+}
+
+.glass-card article + article {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Consistent paragraph spacing */
+.glass-card p {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-main);
+  margin: 0;
 }
 
 .glass-card p + p,
 .glass-card h2 + p,
-.glass-card h3 + p,
+.glass-card h3 + p {
+  margin-top: 6px;
+}
+
 .glass-card h2 + ul,
 .glass-card h3 + ul {
   margin-top: 6px;
@@ -209,7 +252,7 @@ p,
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 .info-bubble {
@@ -256,13 +299,24 @@ p,
 }
 
 .bullet-list {
-  margin: 0;
-  padding-left: 16px;
+  margin: 6px 0 0 0;
+  padding-left: 18px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-main);
 }
 
-.bullet-list li + li {
-  margin-top: 2px;
+.bullet-list li {
+  margin-top: 8px;
+  line-height: 1.5;
+  color: var(--text-main);
 }
+
+.bullet-list li:first-child {
+  margin-top: 0;
+}
+
 
 /* ========================
    5. Skills Layout
@@ -271,8 +325,8 @@ p,
 .skills-layout {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 0;
+  margin-top: 0;
   align-items: flex-start;
 }
 
@@ -281,21 +335,46 @@ p,
   min-width: 0;
 }
 
+.skills-column:not(.skills-tools) {
+  flex-basis: 100%;
+  width: 100%;
+}
+
+.skills-column h3,
+.skills-general h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--gold-soft);
+  letter-spacing: 0.02em;
+}
+
 .skills-general {
   flex: 1 1 0;
   min-width: 0;
   flex-basis: 100%;
+  margin-top: 0;
 }
 
 .skills-tools {
   flex-basis: 100%;
 }
 
+/* Consistent divider spacing for skills sections - matches article spacing exactly */
+.skills-general + .skills-column,
+.skills-general + .skills-tools,
+.skills-tools + .skills-column {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .skills-list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-top: 4px;
+  gap: 8px;
+  margin-top: 6px;
 }
 
 .skill-item {
@@ -339,27 +418,105 @@ p,
   }
 
   .cv-shell {
-    padding: 20px !important;
+    padding: 8px !important;
     background: transparent !important;
     box-shadow: none !important;
   }
 
   .card-grid {
-    padding: 15px !important;
-    gap: 15px !important;
-    min-height: calc(297mm - 40px) !important;
+    padding: 8px 8px 16px 8px !important;
+    margin-top: 0 !important;
+    gap: 8px !important;
+    min-height: calc(297mm - 16px) !important;
     background: rgba(8, 8, 16, 0.32) !important;
   }
 
   .glass-card {
     background: rgba(8, 8, 16, 0.5) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.4) !important;
-    padding: 15px !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 8px !important;
+  }
+
+  .glass-card h2 {
+    margin-bottom: 8px !important;
+  }
+
+  .glass-card article {
+    margin-top: 8px !important;
+  }
+
+  .glass-card article:first-of-type {
+    margin-top: 0 !important;
+  }
+
+  .glass-card article + article {
+    margin-top: 8px !important;
+    padding-top: 8px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .glass-card h3 {
+    margin-bottom: 8px !important;
+  }
+
+  .glass-card p {
+    line-height: 1.3 !important;
+  }
+
+  .glass-card p + p,
+  .glass-card h2 + p,
+  .glass-card h3 + p {
+    margin-top: 8px !important;
+  }
+
+  .glass-card h2 + ul,
+  .glass-card h3 + ul {
+    margin-top: 8px !important;
+  }
+
+  .bullet-list {
+    margin-top: 8px !important;
+  }
+
+  .bullet-list li {
+    margin-top: 8px !important;
+    line-height: 1.3 !important;
+  }
+
+  .bullet-list li:first-child {
+    margin-top: 0 !important;
+  }
+
+  .info-bubbles {
+    margin-top: 8px !important;
+    gap: 8px !important;
+  }
+
+  .info-bubble {
+    padding: 8px !important;
+  }
+
+  .skills-general + .skills-column,
+  .skills-general + .skills-tools,
+  .skills-tools + .skills-column {
+    margin-top: 8px !important;
+    padding-top: 8px !important;
   }
 
   section {
     page-break-inside: avoid;
+  }
+
+  /* Allow Licenses & Certifications and Honours & Awards to fit on page 2 */
+  section:nth-last-child(-n + 2) {
+    page-break-inside: auto !important;
+    page-break-before: avoid !important;
+  }
+  
+  /* Prevent Additional Experience from forcing a page break after it */
+  section:nth-last-child(3) {
+    page-break-after: auto !important;
   }
 
   .card-grid > section:nth-child(-n + 5) {
@@ -368,6 +525,12 @@ p,
 
   .page-break-before {
     page-break-before: always;
+    margin-top: 8px !important;
+  }
+
+  /* Shift all sections on the second page down by 8px */
+  .page-break-before ~ section {
+    margin-top: 8px !important;
   }
 
   a {
