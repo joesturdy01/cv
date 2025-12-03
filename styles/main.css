@@ -1,39 +1,62 @@
 /* ========================
-   1. Theme Variables
+   1. Theme Variables (CSS Custom Properties)
    These act like paint colors the whole CV reuses.
+   Defined in :root so they're available globally.
+   Change these values to update the entire theme consistently.
    ======================== */
 :root {
-  --bg-dark: #020204;
-  --bg-dark-alt: #050608;
-  --bg-card: rgba(8, 8, 10, 0.85);
-  --glass-highlight: rgba(255, 255, 255, 0.16);
-  --gold: #f4c96b;
-  --gold-soft: #f0d89a;
-  --gold-deep: #b38130;
-  --text-main: #ffffff;
-  --text-muted: #d0d3dc;
-  --border-subtle: rgba(255, 255, 255, 0.22);
-  --shadow-soft: 0 32px 80px rgba(0, 0, 0, 0.95);
-  --radius-lg: 28px;
-  --radius-md: 25px;
-  --radius-card: 25px;
-  --radius-pill: 999px;
+  /* Background Colors: Dark theme foundation */
+  --bg-dark: #020204;                    /* Primary dark background */
+  --bg-dark-alt: #050608;                /* Alternative dark shade for variation */
+  --bg-card: rgba(8, 8, 10, 0.85);       /* Card background with transparency for glassmorphism */
+  --glass-highlight: rgba(255, 255, 255, 0.16); /* Subtle highlight for glass effect */
+  
+  /* Gold Accent Colors: Primary brand colors for headings and accents */
+  --gold: #f4c96b;                       /* Primary gold - used for h2 section headings */
+  --gold-soft: #f0d89a;                  /* Softer gold - used for h3 subheadings */
+  --gold-deep: #b38130;                  /* Deep gold for emphasis and hover states */
+  
+  /* Text Colors: Typography color palette */
+  --text-main: #ffffff;                   /* Primary text color - maximum contrast */
+  --text-muted: #d0d3dc;                 /* Secondary/muted text for less emphasis */
+  
+  /* Border and Shadow: Depth and separation */
+  --border-subtle: rgba(255, 255, 255, 0.22); /* Subtle borders for card definition */
+  --shadow-soft: 0 32px 80px rgba(0, 0, 0, 0.95); /* Soft shadow for card depth */
+  
+  /* Border Radius: Consistent rounding system */
+  --radius-lg: 28px;                     /* Large elements */
+  --radius-md: 25px;                     /* Medium elements (default) */
+  --radius-card: 25px;                   /* Card containers */
+  --radius-pill: 999px;                  /* Pills/badges (fully rounded) */
 }
 
 /* ========================
    2. Base Elements & Resets
    Keep defaults predictable across browsers.
+   Universal selector ensures consistent behavior for all elements.
    ======================== */
+/* Universal Box Sizing: Makes padding and borders included in element width/height
+    Prevents layout issues when adding padding or borders */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  
+  /* Font Smoothing: Improves text rendering on different displays
+     -webkit-font-smoothing: antialiased - Smooths fonts on WebKit browsers (Chrome, Safari)
+     -moz-osx-font-smoothing: grayscale - Optimizes font rendering on macOS Firefox */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Font Family: Tomorrow as primary, with system font fallbacks
+     Falls back to native system fonts if Tomorrow fails to load */
   font-family: "Tomorrow", -apple-system, system-ui, BlinkMacSystemFont,
     "SF Pro Text", "Segoe UI", sans-serif;
 }
 
+/* HTML and Body Reset: Removes default browser margins and padding
+   Sets full width/height to ensure proper layout */
 html,
 body {
   width: 100%;
@@ -42,17 +65,24 @@ body {
   padding: 0;
 }
 
+/* Body Layout: Flexbox centering for CV container
+   The CV is centered horizontally on the page */
 body {
-  min-height: 100vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  min-height: 100vh;                      /* Ensures body fills viewport height */
+  display: flex;                          /* Flexbox for centering */
+  align-items: flex-start;                /* Aligns CV to top (not vertically centered) */
+  justify-content: center;                /* Centers CV horizontally */
   padding: 0;
-  color: var(--text-main);
+  color: var(--text-main);                /* Sets default text color */
+  /* Background Image: Fixed attachment creates parallax-like effect
+     The background stays fixed while content scrolls (if needed)
+     center / cover ensures image covers entire viewport */
   background: url("../assets/Futuristic-Gold-and-Black.jpg") center / cover no-repeat
     fixed;
 }
 
+/* Typography Reset: Removes default margins from headings and paragraphs
+   Prevents inconsistent spacing across browsers */
 h1,
 h2,
 h3,
@@ -61,37 +91,46 @@ p {
   margin: 0;
 }
 
+/* Heading Base Styles: Common properties for all heading levels */
 h1,
 h2,
 h3,
 h4 {
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-weight: 600;                       /* Semibold weight for headings */
+  letter-spacing: 0.02em;                /* Slight letter spacing for readability */
 }
 
+/* H1: Hidden heading for ATS/screen readers (not visually displayed)
+   Sized appropriately for semantic hierarchy */
 h1 {
   font-size: 25px;
 }
 
+/* H2: Section headings (Personal Info, Experience, etc.)
+   Uppercase transform and gold color create visual hierarchy */
 h2 {
   font-size: 20px;
-  text-transform: uppercase;
-  color: var(--gold);
+  text-transform: uppercase;             /* Uppercase for emphasis */
+  color: var(--gold);                     /* Gold color for brand consistency */
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
+/* H3: Subheadings (job titles, company names, etc.)
+   Softer gold color distinguishes from h2 */
 h3 {
   font-size: 15px;
-  color: var(--gold-soft);
+  color: var(--gold-soft);               /* Softer gold for secondary headings */
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
+/* Paragraph: Body text styling
+   Optimized line-height for readability in CV format */
 p {
   font-size: 13px;
-  line-height: 1.5;
-  font-weight: 400;
+  line-height: 1.5;                       /* 1.5x line height for comfortable reading */
+  font-weight: 400;                       /* Regular weight for body text */
   color: var(--text-main);
 }
 
@@ -105,65 +144,83 @@ p {
 /* ========================
    3. Layout Wrappers
    Arrange the CV into fixed A4 proportions.
+   These containers ensure consistent layout between web view and PDF export.
    ======================== */
+/* CV Shell: Outer container locked to A4 dimensions (210mm × 297mm)
+   This ensures the CV maintains exact A4 proportions in both browser and PDF */
 .cv-shell {
-  width: 210mm;
-  max-width: 210mm;
-  min-width: 210mm;
-  min-height: 297mm;
+  width: 210mm;                           /* A4 width */
+  max-width: 210mm;                       /* Prevents expansion beyond A4 */
+  min-width: 210mm;                       /* Prevents shrinking below A4 */
+  min-height: 297mm;                      /* A4 height */
   padding: 0;
-  border-radius: 0;
+  border-radius: 0;                       /* No rounding on outer shell */
   position: relative;
-  background: transparent;
+  background: transparent;                /* Allows background image to show through */
 }
 
+/* CV Shell Inner: Inner wrapper that provides the glassmorphism backdrop
+   Slightly shorter than full A4 to account for margins */
 .cv-shell-inner {
   width: 100%;
-  min-height: calc(297mm - 40px);
-  border-radius: var(--radius-card);
+  min-height: calc(297mm - 40px);        /* A4 height minus top/bottom margins */
+  border-radius: var(--radius-card);      /* Rounded corners for modern look */
   padding: 0;
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
+/* Card Grid: Two-column CSS Grid layout for CV sections
+   This is the main container that holds all CV content cards
+   Glassmorphism effect applied to the grid container itself */
 .card-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: min-content;
-  gap: 20px;
+  display: grid;                          /* CSS Grid for two-column layout */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* Two equal columns */
+  grid-auto-rows: min-content;            /* Rows size to content height */
+  gap: 20px;                              /* Space between grid items */
   width: 100%;
-  min-height: calc(297mm - 40px);
-  padding: 20px 20px 20px 20px;
-  margin: 20px 0;
-  border-radius: var(--radius-card);
-  background: rgba(8, 8, 16, 0.25);
-  backdrop-filter: blur(24px) saturate(150%);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  align-content: start;
+  min-height: calc(297mm - 40px);         /* Minimum height for A4 page */
+  padding: 20px 20px 20px 20px;          /* Inner padding */
+  margin: 20px 0;                         /* Top/bottom margins */
+  border-radius: var(--radius-card);      /* Rounded corners */
+  /* Glassmorphism Background: Semi-transparent with backdrop blur
+     Creates the frosted glass effect that's the signature of this design */
+  background: rgba(8, 8, 16, 0.25);       /* Semi-transparent dark background */
+  backdrop-filter: blur(24px) saturate(150%); /* Blur effect with saturation boost */
+  -webkit-backdrop-filter: blur(24px) saturate(150%); /* Safari prefix support */
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04); /* Subtle inner border */
+  align-content: start;                   /* Aligns grid content to top */
 }
 
+/* Card Grid Children: Ensures all cards in grid take full width
+   and use flexbox for internal content layout */
 .card-grid > .glass-card {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
+/* Card Span 2: Utility class to make a card span both columns
+   Used for full-width sections like "Relevant Experience" */
 .card-span-2 {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1;                    /* Spans from first to last column */
 }
 
+/* Equal Height Card: Ensures cards in the same row have matching heights
+   Prevents uneven card heights in two-column layout */
 .equal-height-card {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100%;                           /* Takes full height of grid cell */
 }
 
+/* Personal Info Layout: Flexbox container for contact info and avatar
+   Arranges name/contact info on left, avatar on right */
 .personal-info-layout {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  align-items: center;                    /* Vertically centers items */
+  gap: 20px;                              /* Space between info and avatar */
 }
 
 .personal-info-layout .info-block {
@@ -178,24 +235,34 @@ p {
 /* ========================
    4. Card Components
    Cover the repeating visual blocks.
+   Glassmorphism cards are the primary visual component of the CV.
    ======================== */
+/* Glass Card: The signature glassmorphism card component
+   Each CV section (Experience, Education, etc.) is a glass-card
+   Creates depth and modern aesthetic through transparency and blur */
 .glass-card {
   position: relative;
-  border-radius: var(--radius-card);
-  background: rgba(8, 8, 16, 0.25);
-  backdrop-filter: blur(24px) saturate(150%);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border-radius: var(--radius-card);      /* Rounded corners */
+  /* Glassmorphism Effect: Semi-transparent background with backdrop blur
+     Allows background image to show through while maintaining readability */
+  background: rgba(8, 8, 16, 0.25);       /* Semi-transparent dark background */
+  backdrop-filter: blur(24px) saturate(150%); /* Blur effect with color saturation */
+  -webkit-backdrop-filter: blur(24px) saturate(150%); /* Safari support */
+  /* Layered Shadows: Inset border + outer shadow for depth */
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), var(--shadow-soft);
-  border: 1px solid var(--border-subtle);
-  padding: 20px;
+  border: 1px solid var(--border-subtle); /* Subtle border for definition */
+  padding: 20px;                          /* Internal spacing */
+  /* Smooth Transitions: Animated hover effects */
   transition: transform 220ms ease, box-shadow 220ms ease,
     border-color 220ms ease;
 }
 
+/* Glass Card Hover: Interactive lift effect on hover
+   Provides visual feedback and adds interactivity to the CV */
 .glass-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.95);
-  border-color: rgba(244, 201, 107, 0.9);
+  transform: translateY(-6px);            /* Lifts card up 6px */
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.95); /* Enhanced shadow for depth */
+  border-color: rgba(244, 201, 107, 0.9); /* Gold border on hover */
 }
 
 /* Consistent card heading styles */
@@ -253,17 +320,23 @@ p {
   margin-top: 6px;
 }
 
+/* Info Bubbles Container: Flexbox layout for contact information pills
+   Wraps to multiple lines if needed on smaller screens */
 .info-bubbles {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-wrap: wrap;                        /* Allows wrapping to new line */
+  gap: 8px;                               /* Space between bubbles */
   margin-top: 10px;
 }
 
+/* Info Bubble: Styled contact information pills
+   Each contact method (phone, email, LinkedIn) is an info-bubble
+   Glassmorphism styling matches the overall design theme */
 .info-bubble {
-  padding: 7px 14px;
-  border-radius: var(--radius-card);
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  padding: 7px 14px;                      /* Internal padding */
+  border-radius: var(--radius-card);      /* Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.24); /* Subtle border */
+  /* Glassmorphism: Matches card styling but with lighter blur */
   background: rgba(8, 8, 16, 0.25);
   backdrop-filter: blur(18px) saturate(150%);
   -webkit-backdrop-filter: blur(18px) saturate(150%);
@@ -273,10 +346,10 @@ p {
   align-items: center;
   gap: 4px;
   font-size: 13px;
-  font-style: normal;
+  font-style: normal;                     /* Removes italic from <address> */
   color: var(--text-main);
-  text-decoration: none;
-  white-space: nowrap;
+  text-decoration: none;                 /* Removes underline from links */
+  white-space: nowrap;                    /* Prevents text wrapping */
 }
 
 .info-bubbles .info-bubble:first-child,
@@ -285,39 +358,49 @@ p {
   justify-content: center;
 }
 
+/* Avatar Circle: Circular container for profile photo
+   Fixed size ensures consistent layout */
 .avatar-circle {
-  width: 144px;
-  height: 144px;
-  border-radius: 50%;
+  width: 144px;                           /* Fixed width */
+  height: 144px;                          /* Fixed height (square) */
+  border-radius: 50%;                     /* Perfect circle */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  align-items: center;                    /* Centers image vertically */
+  justify-content: center;                /* Centers image horizontally */
+  flex-shrink: 0;                        /* Prevents shrinking in flex layout */
 }
 
+/* Avatar Image: Profile photo styling
+   Sized to 75% of container with circular clipping and gold border */
 .avatar-circle img {
-  width: 75%;
-  height: 75%;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid var(--gold);
+  width: 75%;                             /* 75% of container size */
+  height: 75%;                            /* Maintains aspect ratio */
+  border-radius: 50%;                     /* Circular image */
+  object-fit: cover;                      /* Covers area while maintaining aspect ratio */
+  border: 1px solid var(--gold);          /* Gold border for brand consistency */
 }
 
+/* Bullet List: Styled unordered lists for experience/project bullet points
+   Used throughout CV for achievements and responsibilities */
 .bullet-list {
-  margin: 6px 0 0 0;
-  padding-left: 18px;
+  margin: 6px 0 0 0;                      /* Top margin for spacing from heading */
+  padding-left: 18px;                    /* Indentation for bullet points */
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.5;                      /* Comfortable line spacing */
   font-weight: 400;
   color: var(--text-main);
 }
 
+/* Bullet List Items: Individual bullet point styling
+   Consistent spacing between items */
 .bullet-list li {
-  margin-top: 8px;
+  margin-top: 8px;                       /* Space between bullet points */
   line-height: 1.5;
   color: var(--text-main);
 }
 
+/* First Bullet: Removes top margin from first item
+   Prevents extra space at the start of lists */
 .bullet-list li:first-child {
   margin-top: 0;
 }
@@ -326,13 +409,16 @@ p {
 /* ========================
    5. Skills Layout
    Handles the multi-column skill badges.
+   Flexbox layout organizes skills into categories (General, Tools, Industry Knowledge).
    ======================== */
+/* Skills Layout: Flexbox container for skill categories
+   Arranges skill sections vertically with consistent spacing */
 .skills-layout {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0;
+  flex-wrap: wrap;                       /* Allows wrapping if needed */
+  gap: 0;                                 /* No gap (spacing handled by borders) */
   margin-top: 0;
-  align-items: flex-start;
+  align-items: flex-start;                /* Aligns items to top */
 }
 
 .skills-column {
@@ -391,28 +477,40 @@ p {
 /* ========================
    6. Print / PDF Overrides
    Forces the same look when Puppeteer prints.
+   These styles override screen styles when generating PDFs.
+   Critical for maintaining visual consistency between web and PDF.
    ======================== */
+/* Print Media Query: Activates when Puppeteer emulates print media
+   All styles here override the default screen styles for PDF export */
 @media print {
+  /* Page Setup: Defines A4 page size with no margins
+     Puppeteer uses this to set PDF page dimensions */
   @page {
-    size: A4;
-    margin: 0;
+    size: A4;                             /* A4 paper size (210mm × 297mm) */
+    margin: 0;                            /* No page margins (handled by padding) */
   }
 
+  /* Color Adjustment: Forces browsers to print backgrounds and colors exactly
+     Without this, browsers may convert colors to grayscale or remove backgrounds */
   *,
   *::before,
   *::after {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important; /* Chrome/Safari */
+    print-color-adjust: exact !important;          /* Standard property */
   }
 
+  /* HTML/Body Print Styles: Locks dimensions to A4 and ensures background renders
+     These overrides are necessary because print media behaves differently than screen */
   html,
   body {
-    width: 210mm !important;
-    min-height: 350mm !important;
-    background-color: var(--bg-dark) !important;
+    width: 210mm !important;              /* A4 width locked */
+    min-height: 350mm !important;         /* Extra height for multi-page content */
+    background-color: var(--bg-dark) !important; /* Dark background fallback */
+    /* Background Image: Ensures glassmorphism backdrop renders in PDF
+       Sized to A4 and repeated vertically for multi-page PDFs */
     background-image: url("../assets/Futuristic-Gold-and-Black.jpg") !important;
-    background-size: 210mm 297mm !important;
-    background-repeat: repeat-y !important;
+    background-size: 210mm 297mm !important; /* A4 dimensions */
+    background-repeat: repeat-y !important;  /* Repeats vertically for page 2+ */
     background-position: 0 0 !important;
   }
 
@@ -428,20 +526,24 @@ p {
     box-shadow: none !important;
   }
 
+  /* Card Grid Print: Reduced padding and gaps for PDF optimization
+     Slightly more opaque background for better print contrast */
   .card-grid {
-    padding: 8px 8px 16px 8px !important;
+    padding: 8px 8px 16px 8px !important; /* Reduced padding for PDF */
     margin-top: 0 !important;
-    gap: 8px !important;
+    gap: 8px !important;                   /* Tighter gaps for PDF */
     min-height: calc(297mm - 16px) !important;
-    background: rgba(8, 8, 16, 0.50) !important;
+    background: rgba(8, 8, 16, 0.50) !important; /* More opaque for print */
     border-radius: var(--radius-card) !important;
   }
 
+  /* Glass Card Print: Enhanced opacity and simplified styling for PDF
+     Removes shadows and borders that may not render well in PDF */
   .glass-card {
-    background: rgba(8, 8, 16, 0.75) !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 8px !important;
+    background: rgba(8, 8, 16, 0.75) !important; /* More opaque for print clarity */
+    border: none !important;               /* Removes border for cleaner print */
+    box-shadow: none !important;          /* Removes shadows (may not render) */
+    padding: 8px !important;               /* Reduced padding for PDF */
     border-radius: var(--radius-card) !important;
   }
 
@@ -512,31 +614,40 @@ p {
     padding-top: 8px !important;
   }
 
+  /* Page Break Control: Prevents sections from breaking across pages
+     Keeps content together for better readability in PDF */
   section {
-    page-break-inside: avoid;
+    page-break-inside: avoid;             /* Prevents breaking section across pages */
   }
 
-  /* Allow Licenses & Certifications and Honours & Awards to fit on page 2 */
+  /* Last Two Sections: Allows breaking for Licenses & Awards sections
+     These sections are shorter and can break if needed to fit on page 2 */
   section:nth-last-child(-n + 2) {
-    page-break-inside: auto !important;
-    page-break-before: avoid !important;
+    page-break-inside: auto !important;    /* Allows breaking if necessary */
+    page-break-before: avoid !important;  /* Prevents page break before */
   }
   
-  /* Prevent Additional Experience from forcing a page break after it */
+  /* Additional Experience: Prevents forced page break after this section
+     Allows natural flow to next page */
   section:nth-last-child(3) {
     page-break-after: auto !important;
   }
 
+  /* First Five Sections: Prevents page breaks after main content sections
+     Keeps primary content (Experience, Projects, etc.) together */
   .card-grid > section:nth-child(-n + 5) {
     page-break-after: avoid;
   }
 
+  /* Page Break Before: Forces a page break (used for Projects section)
+     Ensures certain sections start on a new page in PDF */
   .page-break-before {
-    page-break-before: always;
+    page-break-before: always;            /* Forces new page */
     margin-top: 8px !important;
   }
 
-  /* Shift all sections on the second page down by 8px */
+  /* Sections After Page Break: Adjusts spacing for sections on second page
+     Maintains consistent spacing after forced page break */
   .page-break-before ~ section {
     margin-top: 8px !important;
   }
@@ -547,32 +658,42 @@ p {
   }
 }
 
-/* Extra Safari-focused rule to keep colors when printing. */
+/* Extra Safari-focused rule to keep colors when printing.
+   This media query specifically targets Safari/WebKit browsers
+   to ensure background colors render correctly in PDF export. */
 @media print and (-webkit-min-device-pixel-ratio: 0) {
   body {
-    -webkit-print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important; /* Safari/WebKit prefix */
+    print-color-adjust: exact !important;          /* Standard property */
   }
 }
 
 /* ========================
    7. Accessibility Helpers
    Hidden text still read by screen readers / ATS.
+   The .ats-only class uses CSS clipping to hide content visually
+   while keeping it accessible to assistive technologies and ATS scanners.
    ======================== */
+/* ATS Only: Visually hidden but accessible to screen readers and ATS systems
+   Uses CSS clipping technique (visually-hidden pattern) to hide content
+   while maintaining it in the DOM for machine parsing */
 .ats-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
+  position: absolute;                     /* Removes from normal flow */
+  width: 1px;                             /* Minimal width */
+  height: 1px;                            /* Minimal height */
   padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  margin: -1px;                           /* Negative margin to offset positioning */
+  overflow: hidden;                       /* Hides overflow content */
+  clip: rect(0, 0, 0, 0);                 /* Legacy clipping (for older browsers) */
+  white-space: nowrap;                    /* Prevents text wrapping */
   border: 0;
-  font-size: 0;
-  line-height: 0;
+  font-size: 0;                           /* Zero font size */
+  line-height: 0;                         /* Zero line height */
 }
 
+/* ATS Only Focus/Active: Additional clipping for non-focused elements
+   Ensures content is completely hidden unless focused (for keyboard navigation) */
 .ats-only:not(:focus):not(:active) {
-  clip-path: inset(50%);
+  clip-path: inset(50%);                  /* Modern clipping (hides 50% from all sides) */
 }
 

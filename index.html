@@ -1,37 +1,74 @@
 <!DOCTYPE html>
+<!--
+  Joe Sturdy CV - Single-page curriculum vitae with glassmorphism design
+  Optimized for both web viewing and PDF export, with ATS compatibility
+-->
 <html lang="en">
   <head>
+    <!-- Character encoding: UTF-8 ensures all special characters display correctly -->
     <meta charset="UTF-8" />
+    
+    <!-- Page title: Appears in browser tabs and search engine results -->
     <title>Joe Sturdy – AI Solutions Architect CV</title>
+    
+    <!-- Viewport: Fixed to A4 width (210mm) to match PDF export dimensions -->
     <meta name="viewport" content="width=210mm, initial-scale=1.0" />
-    <!-- Google Font: Tomorrow -->
+    
+    <!-- Google Font: Tomorrow
+         Preconnect hints speed up font loading by establishing early connections
+         to Google's font servers before the actual font request -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Load Tomorrow font family with weights 400, 500, 600, 700 for typography hierarchy -->
     <link
       href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- External stylesheet keeps structure and styles apart so each is easy to tweak -->
+    
+    <!-- External stylesheet: Separates structure (HTML) from presentation (CSS)
+         This makes it easy to update styling without touching content -->
     <link rel="stylesheet" href="styles/main.css" />
+    <!-- SEO Meta Tags: Help search engines understand and index the CV content -->
+    
+    <!-- Description: Appears in search engine results and social media previews -->
     <meta
       name="description"
       content="Curriculum Vitae of Joe Sturdy – AI Solutions Architect and Founder specialising in AI platforms, automation and enterprise adoption. Expertise in scalable AI-powered platforms, enterprise adoption, technical communication, client advisory, cybersecurity sales, business development, and startup founding."
     />
+    
+    <!-- Color scheme: Tells browsers to use dark mode UI if available -->
     <meta name="color-scheme" content="dark" />
+    
+    <!-- Keywords: Relevant search terms for SEO (though less important in modern SEO) -->
     <meta name="keywords" content="AI Solutions Architect, Artificial Intelligence, Machine Learning, LLM, Large Language Models, Automation, Enterprise AI, Cybersecurity Sales, Business Development, Startup Founder, Product Development, AI Platforms, Technical Architecture, Client Advisory, Proof of Concept, ROI, SaaS, Voice Agents, Personal Assistants" />
+    
+    <!-- Robots: Instructs search engines to index this page and follow links -->
     <meta name="robots" content="index, follow" />
+    
+    <!-- Author: Identifies the creator of the document -->
     <meta name="author" content="Joe Sturdy" />
-    <!-- Open Graph / Facebook -->
+    
+    <!-- Open Graph / Facebook: Rich preview metadata for when CV is shared on Facebook, LinkedIn, etc.
+         These tags control how the CV appears when shared on social media platforms -->
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Joe Sturdy – AI Solutions Architect CV" />
     <meta property="og:description" content="Pragmatic AI Solutions Architect and Founder with expertise in architecting scalable AI-powered platforms and driving enterprise adoption." />
     <meta property="og:url" content="https://www.linkedin.com/in/joesturdy" />
-    <!-- Twitter -->
+    
+    <!-- Twitter Card: Optimized preview for Twitter sharing
+         Summary card displays title, description, and thumbnail -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Joe Sturdy – AI Solutions Architect CV" />
     <meta name="twitter:description" content="AI Solutions Architect and Founder specialising in AI platforms, automation and enterprise adoption." />
     
-    <!-- Schema.org structured data tells search engines who this CV belongs to -->
+    <!-- Schema.org Structured Data (JSON-LD)
+         Machine-readable data that helps search engines and ATS systems understand:
+         - Personal information (name, contact details, job title)
+         - Education history and credentials
+         - Skills and expertise areas
+         - Awards and achievements
+         - Professional affiliations
+         This structured data improves SEO and ATS parsing accuracy -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -154,20 +191,42 @@
     </script>
   </head>
   <body>
+    <!-- CV Shell: Outer container that constrains the CV to A4 dimensions (210mm × 297mm)
+         This ensures consistent layout between web view and PDF export -->
     <div class="cv-shell">
+      <!-- CV Shell Inner: Inner wrapper with padding and background effects
+           Provides the glassmorphism backdrop container -->
       <div class="cv-shell-inner">
+        <!-- Main: Semantic HTML5 element indicating the primary content of the page -->
         <main>
+          <!-- H1: Hidden from visual display but accessible to screen readers and ATS systems
+               The .ats-only class hides it visually while keeping it in the DOM for accessibility -->
           <h1 class="ats-only">Joe Sturdy - AI Solutions Architect</h1>
+          
+          <!-- Card Grid: Two-column CSS Grid layout that organizes CV sections
+               Each section is a glass-card that sits in this grid -->
           <div class="card-grid">
-            <!-- Personal Info: quick contact hub plus portrait so people know who they're reading about -->
+            
+            <!-- Personal Info Section: Contact information and profile photo
+                 Uses <header> semantic element as it's the introductory section
+                 equal-height-card ensures it matches height of adjacent cards -->
             <header class="glass-card equal-height-card">
+              <!-- Personal Info Layout: Flexbox container that arranges contact info and avatar side-by-side -->
               <div class="personal-info-layout">
+                <!-- Info Block: Contains the contact information section -->
                 <div class="info-block">
                   <h2>Personal Info</h2>
+                  <!-- Address: Semantic HTML5 element for contact information
+                       The <address> element is appropriate here as it contains contact details -->
                   <address class="info-bubbles">
+                    <!-- Info Bubbles: Styled pills containing contact information
+                         Each bubble is a clickable link (except name) with glassmorphism styling -->
                     <span class="info-bubble">Joe Sturdy</span>
+                    <!-- Tel link: Clickable phone number that opens dialer on mobile devices -->
                     <a class="info-bubble" href="tel:+447785764880" title="Call +44 7785 764880">+447785764880</a>
+                    <!-- Email link: Opens default email client when clicked -->
                     <a class="info-bubble" href="mailto:joesturdy01@icloud.com" type="email" title="Email joesturdy01@icloud.com">joesturdy01@icloud.com</a>
+                    <!-- LinkedIn link: Opens in new tab with security attributes (noopener noreferrer) -->
                     <a
                       class="info-bubble"
                       href="https://www.linkedin.com/in/joesturdy"
@@ -177,13 +236,17 @@
                     >
                   </address>
                 </div>
+                <!-- Avatar Circle: Circular profile photo container
+                     aria-hidden="true" because the image is decorative (name is already in text) -->
                 <div class="avatar-circle" aria-hidden="true">
                   <img src="assets/avatar.jpeg" alt="Portrait of Joe Sturdy" />
                 </div>
               </div>
             </header>
 
-          <!-- Summary: elevator pitch explaining value in a few sentences -->
+          <!-- Summary Section: Professional elevator pitch
+               Concise overview of value proposition and key expertise
+               Helps recruiters quickly understand the candidate's positioning -->
           <section class="glass-card equal-height-card">
             <h2>Summary</h2>
             <p>
@@ -191,10 +254,15 @@
             </p>
           </section>
 
-          <!-- Relevant Experience: timeline of flagship roles showing impact -->
+          <!-- Relevant Experience Section: Chronological work history
+               card-span-2 makes this section span both columns for full width
+               Each role is an <article> element with data attributes for ATS parsing -->
           <section class="glass-card card-span-2">
             <h2>Relevant Experience</h2>
 
+            <!-- Article: Semantic element for each work experience entry
+                 Data attributes (data-job-title, data-company, etc.) help ATS systems
+                 parse and structure the information programmatically -->
             <article data-job-title="Co-Founder" data-company="Askar Research" data-start-date="2024-09-01" data-end-date="present">
               <h3>Co-Founder</h3>
               <p>Askar Research – <time datetime="2024-09-01">September 2024</time> – <time datetime="..">Present</time> (1 Year, 3 Months)</p>
@@ -244,10 +312,13 @@
             </article>
           </section>
 
-          <!-- Relevant Projects: founder-led work proving hands-on build ability -->
+          <!-- Relevant Projects Section: Showcases hands-on project work and entrepreneurial initiatives
+               page-break-before class forces a page break in PDF export for better layout
+               Demonstrates practical application of skills beyond traditional employment -->
           <section class="glass-card equal-height-card page-break-before">
             <h2>Relevant Projects</h2>
 
+            <!-- Project Article: Each project entry with data attributes for ATS compatibility -->
             <article data-job-title="Founder" data-company="Sturdy Ai" data-start-date="2024-08-01" data-end-date="present">
               <h3>Founder</h3>
               <p>Sturdy Ai – <time datetime="2024-08-01">August 2024</time> – <time datetime="..">Present</time> (4 Months)</p>
@@ -265,9 +336,13 @@
             </article>
           </section>
 
-          <!-- Education: degrees and diplomas for credibility -->
+          <!-- Education Section: Academic qualifications and credentials
+               Data attributes help ATS systems categorize and parse education information
+               Includes both university degree and secondary education -->
           <section class="glass-card equal-height-card">
             <h2>Education</h2>
+            <!-- Education Article: Each educational institution is an article element
+                 Data attributes specify institution type and degree level for ATS parsing -->
             <article data-institution-type="university" data-degree="BSc" data-degree-full="Bachelor of Science">
               <h3>Nottingham Trent University</h3>
               <p><time datetime="2020">2020</time> – <time datetime="2021">2021</time></p>
@@ -285,10 +360,15 @@
             </article>
           </section>
 
-          <!-- Skills: grouped list of strengths so hiring teams can scan fast -->
+          <!-- Skills Section: Organized into categories for easy scanning
+               skills-layout uses flexbox to arrange skill categories
+               Helps recruiters quickly identify relevant competencies -->
           <section class="glass-card equal-height-card">
             <h2>Skills</h2>
+            <!-- Skills Layout: Flexbox container organizing skills into columns
+                 Responsive layout that adapts to available space -->
             <div class="skills-layout">
+              <!-- Skills General: Core competencies and general skills -->
               <div class="skills-general">
                 <h3>General</h3>
                 <ul class="bullet-list">
@@ -298,6 +378,7 @@
                 </ul>
               </div>
 
+              <!-- Skills Tools: Technical tools and platforms proficiency -->
               <div class="skills-column skills-tools">
                 <h3>Tools &amp; Technologies</h3>
                 <ul class="bullet-list">
@@ -309,6 +390,7 @@
                 </ul>
               </div>
 
+              <!-- Skills Column: Industry-specific knowledge and expertise areas -->
               <div class="skills-column">
                 <h3>Industry Knowledge</h3>
                 <ul class="bullet-list">
@@ -322,7 +404,9 @@
             </div>
           </section>
 
-          <!-- Additional Experience: supporting roles to show breadth -->
+          <!-- Additional Experience Section: Supporting work history
+               Shows breadth of experience beyond primary roles
+               Demonstrates diverse work background and adaptability -->
           <section class="glass-card equal-height-card">
             <h2>Additional Experience</h2>
             <article data-job-title="Founder" data-company="Sturdy Vanilla" data-start-date="2024-08-01" data-end-date="present">
@@ -351,7 +435,9 @@
             </article>
           </section>
 
-          <!-- Licenses & Certifications: proof of formal qualifications -->
+          <!-- Licenses & Certifications Section: Formal qualifications and credentials
+               Provides proof of professional certifications and licenses
+               Important for roles requiring specific qualifications -->
           <section class="glass-card equal-height-card">
             <h2>Licences &amp; Certifications</h2>
             <article>
@@ -370,7 +456,9 @@
             </article>
           </section>
 
-          <!-- Honours & Awards: recognition that backs up performance -->
+          <!-- Honours & Awards Section: Recognition and achievements
+               Demonstrates excellence and external validation of performance
+               Adds credibility and differentiates from other candidates -->
           <section class="glass-card equal-height-card">
             <h2>Honours &amp; Awards</h2>
             <article>
@@ -387,66 +475,138 @@
             </article>
           </section>
 
-          <!-- Hidden ATS Keywords Section: invisible word bank so applicant tracking systems match the CV to jobs -->
+          <!-- Hidden ATS Keywords Section: Invisible but machine-readable keyword bank
+               The .ats-only class hides this content visually (CSS clip-path) but keeps it
+               accessible to screen readers and ATS (Applicant Tracking System) scanners.
+               This section contains variations of job titles, skills, industries, and keywords
+               that help the CV match job postings even when exact terminology differs.
+               ATS systems scan this text to determine relevance to job requirements. -->
           <div class="ats-only">
-            <h2>ATS Keywords and Variations</h2>
+            <h2>Personal Info</h2>
             <p>
-              AI Solutions Architect, Artificial Intelligence Architect, Machine Learning Engineer, AI Engineer, 
-              Solutions Architect, Technical Architect, Enterprise AI, AI Platform Architect, 
-              AI Automation, Large Language Models, LLM, LLMs, Machine Learning, ML, 
-              Deep Learning, Neural Networks, Natural Language Processing, NLP, 
-              Generative AI, GPT, OpenAI, Claude, AI Consulting, AI Strategy, 
-              Enterprise Adoption, Digital Transformation, Technical Communication, 
-              Client Advisory, Technical Advisor, Business Development, Sales Strategy, 
-              B2B Sales, Enterprise Sales, Cybersecurity Sales, Security Sales, 
-              Account Executive, Sales Executive, Proof of Concept, POC, PoC, 
-              ROI, Return on Investment, SaaS, Software as a Service, 
-              Startup Founder, Co-Founder, Entrepreneur, Business Founder, 
-              Product Development, Product Strategy, Technical Roadmap, 
-              Rapid Prototyping, Agile Development, Software Development, 
-              Voice Agents, Conversational AI, Chatbots, AI Assistants, Personal Assistants, 
-              Automation, Workflow Automation, Process Automation, 
-              Data Privacy, Model Security, Governance, Compliance, 
-              C-Suite, Executive Stakeholders, Enterprise Clients, 
-              Customer Insight, Customer Experience, UX, User Experience, 
-              Product Design, Design Thinking, User-Centered Design, 
-              Supply Chain Management, E-commerce, Direct-to-Consumer, 
-              LinkedIn Sales Navigator, CRM, Customer Relationship Management, 
-              ZoomInfo, Sales Intelligence, Lead Generation, 
-              Wix Studio, Web Development, Website Builder, 
-              Cursor, AI Code Editor, Development Tools, 
-              Python, JavaScript, API Integration, Cloud Computing, 
-              AWS, Azure, Google Cloud, Cloud Architecture, 
-              Project Management, Team Leadership, Cross-functional Collaboration
+              AI Solutions Architect, Solutions Architect, Technical Architect, Cloud Solutions Architect, 
+              Enterprise Solutions Architect, AI Systems Architect, AI Platform Architect, 
+              Machine Learning Engineer, AI Engineer, Enterprise Architect, System Architect, 
+              Platform Architect, Data Architect, Cloud Architect
             </p>
+
+            <h2>Summary</h2>
             <p>
-              Job Titles: AI Solutions Architect, Solutions Architect, Technical Architect, 
-              AI Engineer, Machine Learning Engineer, Business Development Executive, 
-              Senior Business Development Executive, Sales Executive, Account Executive, 
-              Founder, Co-Founder, Entrepreneur, Product Manager, Technical Advisor, 
-              Client Advisor, Business Consultant, AI Consultant
+              AI Solutions Architect, Pragmatic Solutions Architect, Technical AI Implementation, 
+              Business Value, Scalable AI Platforms, Enterprise Adoption, Technical Communication, 
+              Client Advisory, Enterprise AI Solutions, Secure AI Solutions, High-Impact AI, 
+              AI Architecture, Solution Architecture, Enterprise AI Adoption, AI Strategy, 
+              Technical Roadmap, Product Strategy, AI Consulting, AI Advisory
             </p>
+
+            <h2>Relevant Experience</h2>
             <p>
-              Industries: Artificial Intelligence, Machine Learning, Cybersecurity, 
-              Enterprise Software, SaaS, Technology, Software Development, 
-              Research & Development, Consulting, Business Services, 
-              E-commerce, Product Design, Transportation, Tourism, Hospitality
+              AI Solutions Architect, Solutions Architect, Technical Architect, Cloud Solutions Architect, 
+              Enterprise Solutions Architect, AI Platform Architect, AI Systems Architect, 
+              Machine Learning Engineer, AI Engineer, Enterprise Architect, System Architect, 
+              Platform Architect, Data Architect, Cloud Architect, 
+              Senior Business Development Executive, Business Development Executive, 
+              Account Executive, Sales Executive, Enterprise Sales, B2B Sales, 
+              Technical Sales, AI Sales, Cybersecurity Sales, Security Sales, 
+              Co-Founder, Founder, Startup Founder, Entrepreneur, Business Founder, 
+              Technical Advisor, Client Advisor, Business Consultant, AI Consultant, 
+              Product Manager, Technical Product Manager, AI Product Manager, 
+              AI Research, Research Platform, AI Platform Development, Technical Roadmap, 
+              Product Strategy, Architecture Roadmap, Rapid Prototyping, Agile Development, 
+              Enterprise Clients, C-Suite, Executive Stakeholders, Client Advisory, 
+              Proof of Concept, POC, PoC, ROI, Return on Investment, 
+              Data Privacy, Model Security, Governance, Compliance, AI Governance, 
+              Platform Engineering, Technical Integration, Beta Launch, Enterprise Pilot
             </p>
+
+            <h2>Relevant Projects</h2>
             <p>
-              Education: Bachelor of Science, BSc, Product Design, 
-              BTEC Level 3, National Diploma, Business, Technology, 
-              Nottingham Trent University, Milton Abbey
+              AI Solutions Architect, Solutions Architect, Technical Architect, 
+              Custom AI Solutions, AI Platform Development, Voice Agents, Conversational AI, 
+              AI Assistants, Personal Assistants, Chatbots, Large Language Models, LLM, LLMs, 
+              Workflow Automation, Process Automation, Business Process Automation, 
+              Operational Efficiency, Technical Advisor, Business Clients, AI Roadmaps, 
+              Secure Roadmaps, AI Hype, Practical AI, Measurable ROI, 
+              Rapid Prototyping, Proprietary Tools, AI Voice Agent, SaaS, Software as a Service, 
+              Scalable SaaS, Productisation, AI Product Development
             </p>
+
+            <h2>Education</h2>
             <p>
-              Certifications: DVLA Driving Licence, 
-              Entrepreneur and Enterprise Award, 
-              UK BTEC Business and Enterprise Student of the Year (Bronze Award), Duke of Edinburgh Award
+              Bachelor of Science, BSc, Product Design, Design Thinking, User-Centered Design, 
+              BTEC Level 3, National Diploma, Business, Technology, Design, 
+              Nottingham Trent University, Milton Abbey, 
+              Enterprise, Entrepreneurship, Design Technology, Music Technology
+            </p>
+
+            <h2>Skills</h2>
+            <h3>General</h3>
+            <p>
+              Startup Founding, Startup Growth, Business Growth, Entrepreneurship, 
+              Artificial Intelligence, AI, Machine Learning, ML, Deep Learning, 
+              Neural Networks, Automation, Business Automation, Workflow Automation, 
+              Business Development, Sales Strategy, B2B Sales, Enterprise Sales, 
+              Technical Sales, AI Sales, Client Development, Account Management
+            </p>
+
+            <h3>Tools &amp; Technologies</h3>
+            <p>
+              Google Cloud Platform, GCP, Google Cloud, Cloud Computing, 
+              Vertex AI, BigQuery, Data Analytics, Analytics, 
+              REST APIs, REST API, Webhooks, API Integration, API Development, 
+              Make.com, Automation Platforms, Workflow Platforms, 
+              Cloud Services, Cloud Infrastructure, Cloud Architecture, 
+              AWS, Amazon Web Services, Azure, Microsoft Azure, 
+              Python, JavaScript, API Development, Integration Development
+            </p>
+
+            <h3>Industry Knowledge</h3>
+            <p>
+              AI Architecture, Automation Architecture, Platform Architecture, 
+              Solution Architecture, System Architecture, Enterprise Architecture, 
+              Solution Design, Technical Discovery, Requirements Discovery, 
+              Cloud Architecture, Cloud Fundamentals, Cloud Infrastructure, 
+              Data Pipelines, ETL, ELT, Data Engineering, Data Integration, 
+              Cybersecurity, Information Security, AI Security, Threat Landscape, 
+              AI Threat Landscape, Model Security, Data Privacy, Governance, Compliance
+            </p>
+
+            <h2>Additional Experience</h2>
+            <p>
+              Founder, Co-Founder, Startup Founder, Entrepreneur, Business Founder, 
+              Sales Representative, Sales Consultant, Business Assistant, 
+              Customer Service, Client Relations, Account Management, 
+              Business Operations, Operations Management, Supply Chain, 
+              E-commerce, Direct-to-Consumer, Digital Marketing, 
+              Customer Experience, Client Management, Relationship Management
+            </p>
+
+            <h2>Licences &amp; Certifications</h2>
+            <p>
+              Google Cloud Professional, GCP Professional, Google Cloud Certification, GCP Certification, 
+              Cloud Digital Leader, Associate Cloud Engineer, Professional Cloud Architect, 
+              Professional Data Engineer, Professional Cloud Security Engineer, 
+              Cloud Architecture Certification, Data Engineering Certification, 
+              Cloud Security Certification, Google Cloud Architect, GCP Architect, 
+              Cloud Engineer, Data Engineer, Cloud Security Engineer, 
+              Driving Licence, DVLA, UK Driving Licence
+            </p>
+
+            <h2>Honours &amp; Awards</h2>
+            <p>
+              Entrepreneur and Enterprise Award, Enterprise Award, Entrepreneurship Award, 
+              UK BTEC Business and Enterprise Student of the Year, BTEC Student of the Year, 
+              Bronze Award, Business and Enterprise Award, 
+              Duke of Edinburgh Award, DofE Award, Bronze DofE Award
             </p>
           </div>
         </div>
         </main>
+        <!-- End of main content area -->
       </div>
+      <!-- End of cv-shell-inner -->
     </div>
+    <!-- End of cv-shell -->
   </body>
 </html>
 
