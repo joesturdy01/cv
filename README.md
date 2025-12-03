@@ -1,5 +1,7 @@
 # Joe Sturdy CV
 
+🌐 **[View Online Version](https://joesturdy01.github.io/cv/)**
+
 Single-page CV with glassmorphism design theme. Open `index.html` in any modern browser to preview.
 
 ## Overview
