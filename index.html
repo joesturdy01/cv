@@ -204,7 +204,13 @@
           <h1 class="ats-only">Joe Sturdy - AI Solutions Architect</h1>
           
           <!-- Card Grid: Two-column CSS Grid layout that organizes CV sections
-               Each section is a glass-card that sits in this grid -->
+               Each section is a glass-card that sits in this grid
+               
+               IMPORTANT READING ORDER (for ATS and copy-paste):
+               Sections are in DOM order to ensure proper reading order:
+               1. Personal Info, 2. Summary, 3. Relevant Experience, 4. Relevant Projects,
+               5. Education, 6. Skills, 7. Additional Experience, 8. Licences & Certifications,
+               9. Honours & Awards -->
           <div class="card-grid">
             
             <!-- Personal Info Section: Contact information and profile photo
@@ -338,7 +344,8 @@
 
           <!-- Education Section: Academic qualifications and credentials
                Data attributes help ATS systems categorize and parse education information
-               Includes both university degree and secondary education -->
+               Includes both university degree and secondary education
+               Positioned immediately after Relevant Projects to ensure correct copy-paste reading order -->
           <section class="glass-card equal-height-card">
             <h2>Education</h2>
             <!-- Education Article: Each educational institution is an article element
@@ -406,7 +413,8 @@
 
           <!-- Additional Experience Section: Supporting work history
                Shows breadth of experience beyond primary roles
-               Demonstrates diverse work background and adaptability -->
+               Demonstrates diverse work background and adaptability
+               Positioned before Licences & Certifications to ensure correct copy-paste reading order -->
           <section class="glass-card equal-height-card">
             <h2>Additional Experience</h2>
             <article data-job-title="Founder" data-company="Sturdy Vanilla" data-start-date="2024-08-01" data-end-date="present">
@@ -480,7 +488,12 @@
                accessible to screen readers and ATS (Applicant Tracking System) scanners.
                This section contains variations of job titles, skills, industries, and keywords
                that help the CV match job postings even when exact terminology differs.
-               ATS systems scan this text to determine relevance to job requirements. -->
+               ATS systems scan this text to determine relevance to job requirements.
+               
+               IMPORTANT: This section follows the same reading order as the visible content:
+               1. Personal Info, 2. Summary, 3. Relevant Experience, 4. Relevant Projects,
+               5. Education, 6. Skills, 7. Additional Experience, 8. Licences & Certifications,
+               9. Honours & Awards -->
           <div class="ats-only">
             <h2>Personal Info</h2>
             <p>

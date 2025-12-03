@@ -173,17 +173,28 @@ p {
 
 /* Card Grid: Two-column CSS Grid layout for CV sections
    This is the main container that holds all CV content cards
-   Glassmorphism effect applied to the grid container itself */
+   Glassmorphism effect applied to the grid container itself
+   
+   IMPORTANT: Grid items are placed in DOM order (left-to-right, top-to-bottom)
+   to ensure copy-paste and ATS systems read sections in the correct order:
+   1. Personal Info, 2. Summary, 3. Relevant Experience, 4. Relevant Projects,
+   5. Education, 6. Skills, 7. Additional Experience, 8. Licences & Certifications,
+   9. Honours & Awards */
 .card-grid {
   display: grid;                          /* CSS Grid for two-column layout */
   grid-template-columns: repeat(2, minmax(0, 1fr)); /* Two equal columns */
   grid-auto-rows: min-content;            /* Rows size to content height */
+  grid-auto-flow: row;                    /* Explicitly place items row-by-row in DOM order */
   gap: 20px;                              /* Space between grid items */
   width: 100%;
   min-height: calc(297mm - 40px);         /* Minimum height for A4 page */
   padding: 20px 20px 20px 20px;          /* Inner padding */
   margin: 20px 0;                         /* Top/bottom margins */
   border-radius: var(--radius-card);      /* Rounded corners */
+  /* Reading Order: Force left-to-right, top-to-bottom reading order
+     Helps PDF viewers (especially Mac Preview) extract text in correct DOM order */
+  direction: ltr;                         /* Left-to-right reading direction */
+  writing-mode: horizontal-tb;            /* Top-to-bottom writing mode */
   /* Glassmorphism Background: Semi-transparent with backdrop blur
      Creates the frosted glass effect that's the signature of this design */
   background: rgba(8, 8, 16, 0.25);       /* Semi-transparent dark background */
@@ -243,6 +254,10 @@ p {
 .glass-card {
   position: relative;
   border-radius: var(--radius-card);      /* Rounded corners */
+  /* Reading Order: Ensure proper text extraction order for PDF viewers
+     Helps Mac Preview and other PDF viewers copy text in DOM order */
+  direction: ltr;                         /* Left-to-right reading direction */
+  writing-mode: horizontal-tb;            /* Top-to-bottom writing mode */
   /* Glassmorphism Effect: Semi-transparent background with backdrop blur
      Allows background image to show through while maintaining readability */
   background: rgba(8, 8, 16, 0.25);       /* Semi-transparent dark background */
