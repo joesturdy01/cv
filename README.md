@@ -193,6 +193,67 @@ The PDF export process handles several critical requirements:
 - **PDF Tagging**: Tagged PDF structure enables accessibility and ATS parsing
 - **Color Accuracy**: `print-color-adjust: exact` ensures colors match screen exactly
 
+## Troubleshooting
+
+### Issue: Third Empty Page Appearing in PDF
+
+**Symptoms**: After editing content in `index.html`, the PDF export generates 3 pages instead of 2, with the third page being empty or nearly empty.
+
+**Root Cause**: This happens when CSS constraints in the print media query force the document to be taller than necessary, causing Puppeteer to create an extra page. Common causes include:
+- `min-height` values that exceed A4 dimensions (297mm)
+- Margins or padding that add extra space
+- Page break rules that force content onto new pages
+
+**Solution**: Check and adjust the following in `styles/main.css` under the `@media print` section:
+
+1. **Remove excessive min-height constraints**:
+   ```css
+   /* In @media print section, ensure these are set to auto: */
+   html, body {
+     /* Remove or set to auto: min-height: 350mm !important; */
+   }
+   
+   .cv-shell {
+     min-height: auto !important;
+   }
+   
+   .cv-shell-inner {
+     min-height: auto !important;
+   }
+   
+   .card-grid {
+     min-height: auto !important;
+   }
+   ```
+
+2. **Remove margins that add extra space**:
+   ```css
+   .card-grid {
+     margin: 0 !important;  /* Remove all margins in print */
+   }
+   ```
+
+3. **Ensure page break rules don't force extra pages**:
+   ```css
+   section:last-child {
+     page-break-after: avoid !important;  /* Prevent page break after last section */
+   }
+   
+   .ats-only {
+     page-break-after: avoid !important;
+     page-break-before: avoid !important;
+     page-break-inside: avoid !important;
+   }
+   ```
+
+**Prevention Tips**:
+- When adding new content, keep sections concise to fit within 2 pages
+- Avoid adding large margins or padding in print media queries
+- Test PDF export after significant content changes: `npm run export:pdf`
+- If content grows beyond 2 pages naturally, consider condensing text or adjusting spacing
+
+**Quick Check**: The content should be approximately 1900-2000px tall to fit comfortably on 2 A4 pages (each page is ~1123px). If your content exceeds ~2245px total, you may need to reduce content or spacing.
+
 ### Accessibility Features
 - **Semantic HTML**: Proper use of `<header>`, `<section>`, `<article>`, `<address>`, `<time>` elements
 - **Screen Reader Support**: `.ats-only` class uses CSS clipping to hide content visually while remaining accessible

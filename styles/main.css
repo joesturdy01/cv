@@ -171,6 +171,12 @@ p {
   gap: 0;
 }
 
+@media print {
+  .cv-shell-inner {
+    min-height: auto !important;          /* Remove min-height in print to prevent extra pages */
+  }
+}
+
 /* Card Grid: Two-column CSS Grid layout for CV sections
    This is the main container that holds all CV content cards
    Glassmorphism effect applied to the grid container itself
@@ -519,7 +525,6 @@ p {
   html,
   body {
     width: 210mm !important;              /* A4 width locked */
-    min-height: 350mm !important;         /* Extra height for multi-page content */
     background-color: var(--bg-dark) !important; /* Dark background fallback */
     /* Background Image: Ensures glassmorphism backdrop renders in PDF
        Sized to A4 and repeated vertically for multi-page PDFs */
@@ -539,15 +544,16 @@ p {
     padding: 8px !important;
     background: transparent !important;
     box-shadow: none !important;
+    min-height: auto !important;            /* Remove min-height to prevent extra pages */
   }
 
   /* Card Grid Print: Reduced padding and gaps for PDF optimization
      Slightly more opaque background for better print contrast */
   .card-grid {
     padding: 8px 8px 16px 8px !important; /* Reduced padding for PDF */
-    margin-top: 0 !important;
+    margin: 0 !important;                  /* Remove all margins to prevent extra space */
     gap: 8px !important;                   /* Tighter gaps for PDF */
-    min-height: calc(297mm - 16px) !important;
+    min-height: auto !important;           /* Remove min-height to prevent extra pages */
     background: rgba(8, 8, 16, 0.50) !important; /* More opaque for print */
     border-radius: var(--radius-card) !important;
   }
@@ -582,15 +588,15 @@ p {
 
   /* Reduce spacing on last 3 sections to help fit on page 2 */
   section:nth-last-child(-n + 3) {
-    padding: 6px !important;
+    padding: 8px !important;
   }
 
   section:nth-last-child(-n + 3) h2 {
-    margin-bottom: 6px !important;
+    margin-bottom: 8px !important;
   }
 
   section:nth-last-child(-n + 3) article {
-    margin-top: 6px !important;
+    margin-top: 8px !important;
   }
 
   section:nth-last-child(-n + 3) article:first-of-type {
@@ -598,16 +604,16 @@ p {
   }
 
   section:nth-last-child(-n + 3) article + article {
-    margin-top: 6px !important;
-    padding-top: 6px !important;
+    margin-top: 8px !important;
+    padding-top: 8px !important;
   }
 
   section:nth-last-child(-n + 3) .bullet-list {
-    margin-top: 6px !important;
+    margin-top: 8px !important;
   }
 
   section:nth-last-child(-n + 3) .bullet-list li {
-    margin-top: 6px !important;
+    margin-top: 8px !important;
     line-height: 1.25 !important;
   }
 
@@ -677,6 +683,19 @@ p {
      Allows natural flow to next page */
   section:nth-last-child(3) {
     page-break-after: auto !important;
+  }
+
+  /* Last Section: Allow breaking and prevent page break after to avoid empty pages */
+  section:last-child {
+    page-break-inside: auto !important;    /* Allow breaking if needed */
+    page-break-after: avoid !important;    /* Prevent page break after */
+  }
+  
+  /* Ensure no element forces a page break that creates empty pages */
+  .ats-only {
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+    page-break-inside: avoid !important;
   }
 
   /* First Five Sections: Prevents page breaks after main content sections
