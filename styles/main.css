@@ -580,6 +580,37 @@ p {
     border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
 
+  /* Reduce spacing on last 3 sections to help fit on page 2 */
+  section:nth-last-child(-n + 3) {
+    padding: 6px !important;
+  }
+
+  section:nth-last-child(-n + 3) h2 {
+    margin-bottom: 6px !important;
+  }
+
+  section:nth-last-child(-n + 3) article {
+    margin-top: 6px !important;
+  }
+
+  section:nth-last-child(-n + 3) article:first-of-type {
+    margin-top: 0 !important;
+  }
+
+  section:nth-last-child(-n + 3) article + article {
+    margin-top: 6px !important;
+    padding-top: 6px !important;
+  }
+
+  section:nth-last-child(-n + 3) .bullet-list {
+    margin-top: 6px !important;
+  }
+
+  section:nth-last-child(-n + 3) .bullet-list li {
+    margin-top: 6px !important;
+    line-height: 1.25 !important;
+  }
+
   .glass-card h3 {
     margin-bottom: 8px !important;
   }
@@ -635,9 +666,9 @@ p {
     page-break-inside: avoid;             /* Prevents breaking section across pages */
   }
 
-  /* Last Two Sections: Allows breaking for Licenses & Awards sections
-     These sections are shorter and can break if needed to fit on page 2 */
-  section:nth-last-child(-n + 2) {
+  /* Last Three Sections: Allows breaking for Additional Experience, Licenses & Awards sections
+     These sections can break if needed to fit content on page 2 */
+  section:nth-last-child(-n + 3) {
     page-break-inside: auto !important;    /* Allows breaking if necessary */
     page-break-before: avoid !important;  /* Prevents page break before */
   }
